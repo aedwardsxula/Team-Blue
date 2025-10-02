@@ -10,6 +10,12 @@ int bmi = 0
 
 //Act 
 
-System.out.println(var direction = '')
+System.out.println(direction)
+
+//Assert
+
+if (direction == True) {
+    System.out.println("Test was successful")
+}
 
 
