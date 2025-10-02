@@ -1,3 +1,26 @@
+
 2. Arrange: Create a tiny dataset of 4 records with the required numeric attributes age, bmi, children, charges
    Act: Call your function that calculates count, mean, std, min, 25th, 50th, 75th, max for each attribute (age, bmi, children, charges.)
    Verify the outputs exactly as numbers rounded here to 4 decimals. If every asserted value matches (within tolerance), the test passes.
+
+Problem 1 Test:
+//Arrange
+
+var sex = ''
+var direction = ''
+var poilicy_holder = ''
+int age = 0
+int premuim_cost =  0
+int bmi = 0 
+
+//Act 
+
+System.out.println(direction)
+
+//Assert
+
+if (direction == True) {
+    System.out.println("Test was successful")
+}
+
+
