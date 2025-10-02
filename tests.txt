@@ -1,0 +1,21 @@
+Problem 1 Test:
+//Arrange
+
+var sex = ''
+var direction = ''
+var poilicy_holder = ''
+int age = 0
+int premuim_cost =  0
+int bmi = 0 
+
+//Act 
+
+System.out.println(direction)
+
+//Assert
+
+if (direction == True) {
+    System.out.println("Test was successful")
+}
+
+
