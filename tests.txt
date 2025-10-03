@@ -44,3 +44,8 @@ to record number of records of clients that fit the criteria.
 Act: Generate the total number of records for each children 
 Assert: The output should be: 
 The total number of records for children is: 0 
+
+Test 2: If a client's age is 0
+Arrange: 
+Act: 
+Assert: 
