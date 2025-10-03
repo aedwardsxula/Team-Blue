@@ -37,6 +37,9 @@ Assert: The output for the data of this csv, if 15 (starting number), and 5
 45 - 50: *
 
 Problem 5 Test: Total number of records for each number of children
-Arrange: 
+Test 1: If number of children is zero
+Arrange: Identify the ages of the clients in the data set. Have the 
+cut off age for a child be input as a variable. Have a sum/total variable 
+to record number of records of clients that fit the criteria.
 Act: 
 Assert: 
