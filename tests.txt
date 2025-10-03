@@ -1,3 +1,4 @@
+
 2. Arrange: Create a tiny dataset of 4 records with the required numeric attributes age, bmi, children, charges
    Act: Call your function that calculates count, mean, std, min, 25th, 50th, 75th, max for each attribute (age, bmi, children, charges.)
    Verify the outputs exactly as numbers rounded here to 4 decimals. If every asserted value matches (within tolerance), the test passes.
@@ -5,3 +6,65 @@
 4. Arrange: Prepare a small set of BMI values to test. BMIs = [18.5, 22.0, 27.3, 31.0]
    Act: Run the function that generates the vertical histogram of the BMI values. Capture the output (either as a String or directly from the console).
    Assert: Compare the actual histogram output to the expected histogram and verify if each BMI value is counted in the correct bin, the histogram is vertical, the right number of symbols, and the labels at the bottom of the histogram match the bins.
+Problem 1 Test:
+//Arrange
+
+var sex = ''
+var direction = ''
+var poilicy_holder = ''
+int age = 0
+int premuim_cost =  0
+int bmi = 0 
+
+//Act 
+
+System.out.println(direction)
+
+//Assert
+
+if (direction == True) {
+    System.out.println("Test was successful")
+}
+
+Problem 3 Test: horizontal text-based histogram of the age 
+Arrange: The ages for this code should be variables inputted by
+the user or coder and taken from the csv. A dictionary should be 
+used to count how many customers are a certain age. The range inputs for
+the histogram intervals, and the first interval number should be inputted (no magic numbers). 
+Act: Generate histogram string.
+The range segments should be
+Assert: The output for the data of this csv, if 15 (starting number), and 5
+(interval length) are inputted
+
+15 - 20: **
+20 - 25:
+25 - 30: *
+30 - 35: **
+35 - 40: 
+40 - 45:
+45 - 50: *
+
+Problem 5 Test: Total number of records for each number of children
+Test 1: If number of children is zero
+Arrange: Identify the ages of the clients in the data set. Have the 
+cut off age for a child be input as a variable. Have a sum/total variable 
+to record number of records of clients that fit the criteria.
+Act: Generate the total number of records for each children 
+Assert: The output should be: 
+The total number of records for children is: 0 
+
+Test 2: If a client's age is 0
+Arrange: Identify the ages of the clients in the data set. Have the 
+cut off age for a child be input as a variable. Have a sum/total variable. Do
+not a client who is aged 0 in the total 
+Act: Generate the total number of records for each children 
+Assert: The output should be (with the client input of 15, and the client ages
+in the interval are 0, 12, 13):
+The total number of records for children is: 2
+
+Problem 7 Test: 
+Test1: 
+Arrange:
+Act: 
+Assert: 
+
