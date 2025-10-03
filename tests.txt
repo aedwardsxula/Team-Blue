@@ -50,4 +50,6 @@ Arrange: Identify the ages of the clients in the data set. Have the
 cut off age for a child be input as a variable. Have a sum/total variable. Do
 not a client who is aged 0 in the total 
 Act: Generate the total number of records for each children 
-Assert: 
+Assert: The output should be (with the client input of 15, and the client ages
+in the interval are 0, 12, 13):
+The total number of records for children is: 2
