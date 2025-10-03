@@ -18,4 +18,7 @@ if (direction == True) {
     System.out.println("Test was successful")
 }
 
-
+Problem 3 Test: horizontal text-based histogram of the age 
+Arrange:
+Act: 
+Assert:
