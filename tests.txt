@@ -49,5 +49,5 @@ Test 2: If a client's age is 0
 Arrange: Identify the ages of the clients in the data set. Have the 
 cut off age for a child be input as a variable. Have a sum/total variable. Do
 not a client who is aged 0 in the total 
-Act: 
+Act: Generate the total number of records for each children 
 Assert: 
