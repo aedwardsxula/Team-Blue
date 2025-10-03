@@ -53,3 +53,10 @@ Act: Generate the total number of records for each children
 Assert: The output should be (with the client input of 15, and the client ages
 in the interval are 0, 12, 13):
 The total number of records for children is: 2
+
+Problem 7 Test: 
+Test1: 
+Arrange:
+Act: 
+Assert: 
+
