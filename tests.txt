@@ -22,5 +22,5 @@ Problem 3 Test: horizontal text-based histogram of the age
 Arrange: The ages for this code should be variables inputted by
 the user or coder and taken from the csv. A dictionary should be 
 used to count how many customers are a certain age. 
-Act: 
+Act: Generate histogram string (asterisks are above the number)
 Assert:
