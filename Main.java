@@ -69,5 +69,21 @@ public class Main {
         for (InsuranceRecord r : records) {
             System.out.println(r);
         }
+        System.out.println("\nHistogram of Ages:");
+
+        Map<Integer, Integer> ageFreq = new TreeMap<>();
+        for (InsuranceRecord r : records) {
+            ageFreq.put(r.age, ageFreq.getOrDefault(r.age, 0) + 1);
+        }
+
+         for (Map.Entry<Integer, Integer> entry : ageFreq.entrySet()){
+            int age = entry.getKey();
+            int freq = entry.getValue();
+            System.out.printf("%3d | %s (%d)%n", age, "*".repeat(freq), freq);
+         }
+
+
+
+    
     }
 }

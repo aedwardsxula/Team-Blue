@@ -1,3 +1,7 @@
 2. Arrange: Create a tiny dataset of 4 records with the required numeric attributes age, bmi, children, charges
    Act: Call your function that calculates count, mean, std, min, 25th, 50th, 75th, max for each attribute (age, bmi, children, charges.)
    Verify the outputs exactly as numbers rounded here to 4 decimals. If every asserted value matches (within tolerance), the test passes.
+
+4. Arrange: Prepare a small set of BMI values to test. BMIs = [18.5, 22.0, 27.3, 31.0]
+   Act: Run the function that generates the vertical histogram of the BMI values. Capture the output (either as a String or directly from the console).
+   Assert: Compare the actual histogram output to the expected histogram and verify if each BMI value is counted in the correct bin, the histogram is vertical, the right number of symbols, and the labels at the bottom of the histogram match the bins.
