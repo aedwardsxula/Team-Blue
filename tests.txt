@@ -23,7 +23,7 @@ Arrange: The ages for this code should be variables inputted by
 the user or coder and taken from the csv. A dictionary should be 
 used to count how many customers are a certain age. The range inputs for
 the histogram intervals, and the first interval number should be inputted (no magic numbers). 
-Act: Generate histogram string (asterisks are above the leftmost number in an interval).
+Act: Generate histogram string.
 The range segments should be
 Assert: The output for the data of this csv, if 15 (starting number), and 5
 (interval length) are inputted
@@ -41,5 +41,5 @@ Test 1: If number of children is zero
 Arrange: Identify the ages of the clients in the data set. Have the 
 cut off age for a child be input as a variable. Have a sum/total variable 
 to record number of records of clients that fit the criteria.
-Act: 
+Act: Generate the total number of records for each children 
 Assert: 
