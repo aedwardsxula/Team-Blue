@@ -38,7 +38,7 @@ class InsuranceRecord {
 public class Main {
     public static void main(String[] args) {
         String filePath = "insurance.csv"; // path to dataset
-        int N = 5; // how many records to store
+        int N = 10; // how many records to store
         List<InsuranceRecord> records = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -81,6 +81,17 @@ public class Main {
             int freq = entry.getValue();
             System.out.printf("%3d | %s (%d)%n", age, "*".repeat(freq), freq);
          }
+
+          System.out.println("\nNumber of Records by Children:");
+          Map<Integer, Integer> childrenFreq = new TreeMap<>();
+          for (InsuranceRecord r : records){
+            childrenFreq.put(r.children, childrenFreq.getOrDefault(r.children, 0) + 1);
+          }
+            for (Map.Entry<Integer, Integer> entry : childrenFreq.entrySet()){
+                int children = entry.getKey();
+                int freq = entry.getValue();
+                System.out.printf("%3d | %s (%d)%n", children, "*".repeat(freq), freq);
+            }
 
 
 
