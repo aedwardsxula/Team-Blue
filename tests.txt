@@ -1,0 +1,12 @@
+
+//Test for 3
+// Arrange: Ages = [18, 18, 40, 44], Start=15, Interval=5
+// Act: Run horizontal age histogram
+// Assert: Output should show
+// 15-20: ** (2)
+// 20-25:  (0)
+// 25-30:  (0)
+// 30-35:  (0)
+// 35-40:  (0)
+// 40-45: ** (2)
+// 45-50:  (0)
