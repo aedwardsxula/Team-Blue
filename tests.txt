@@ -54,14 +54,16 @@ Test 2: If a client's age is 0
 Arrange: Identify the ages of the clients in the data set. Have the 
 cut off age for a child be input as a variable. Have a sum/total variable. Do
 not a client who is aged 0 in the total 
-Act: Generate the total number of records for each children 
+Act: Generate the total number of records for each child
 Assert: The output should be (with the client input of 15, and the client ages
 in the interval are 0, 12, 13):
 The total number of records for children is: 2
 
-Problem 7 Test: 
-Test1: 
-Arrange:
+Problem 7 Test: Fairness of data 
+Test1: If data differs at more than 5%
+Arrange: Identify the different regions, and create a variable for the sum of each
+region's total amount of records. Ensure when subtracting these record amounts to find
+the difference that the absolute value is used. 
 Act: 
 Assert: 
 
