@@ -16,3 +16,8 @@
 // and different average charges per region.
 // Act: Calculate average charge per region and sort them in descending order.
 // Assert: Verify that regions are sorted from highest to lowest average charges.
+
+//Test for #16
+// Arrange: Create dataset with smoker ages [19, 22, 25] and non-smoker ages [40, 45, 60].
+// Act: Calculate average age for smokers and non-smokers.
+// Assert: Verify smoker average age < non-smoker average age.
