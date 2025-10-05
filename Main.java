@@ -185,9 +185,9 @@ public class Main {
         double avgChargeUnder20 = stats.mean(chargeForUnder20);
 
         if (avgChargeOver50 <= 2 * avgChargeUnder20) {
-            System.out.printf("\n People 50 or older do NOT average twice the charges as the average of people 20 and younger");
+            System.out.printf("\nPeople 50 or older do NOT average twice the charges as the average of people 20 and younger");
         } else {
-        System.out.printf("\n People 50 or older average twice the charges as the average of people 20 and younger");
+        System.out.printf("\nPeople 50 or older average twice the charges as the average of people 20 and younger");
         
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
@@ -204,4 +204,5 @@ public class Main {
 
     
     }
+}
 }
