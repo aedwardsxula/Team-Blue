@@ -76,6 +76,11 @@ Act: Generate a true or false boolean that answers if the data is fair
 Assert: The output should look similar to this:
 The data is fair: True
 
+Problem 9 Test: Range of BMIs
+Test1: If range for charge is the same as the other two ranges
+Arrange:
+Act:
+Assert:
 
 
 
