@@ -320,11 +320,13 @@ public class Main {
             chargesArray2.add(r.charges);
         }
         // convert Lists to primitive double[] for existing LinearRegression constructor
-        double[] bmiArr = bmiArray.stream().mapToDouble(Double::doubleValue).toArray();
-        double[] chargesArr = chargesArray.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] regionArr = regionArray.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] chargesArr2 = chargesArray2.stream().mapToDouble(Double::doubleValue).toArray();
 
         System.out.println();
-        LinearRegression lr3 = new LinearRegression(fakevalues2, fakevalues1);
+        LinearRegression lr3 = new LinearRegression(regionArr, chargesArr2);
+        Double lrCorrelation2 = lr3.getCorrelation();
+        System.out.printf("Correlation between Region and Charges: %6.4f%n", lrCorrelation2);
 
 
 
