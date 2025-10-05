@@ -228,6 +228,14 @@ public class Main {
         double avgSouthernSmokers = stats.mean(southernSmokers);
         double avgNorthernSmokers = stats.mean(northernSmokers);
 
+        if (avgSouthernSmokers >= .25 * avgNorthernSmokers) {
+            System.out.println();
+            System.out.printf("\nSouthern smokers are charged are least 25% more than other smokers.");
+        } else {
+            System.out.println();
+            System.out.printf("\nSouthern smokers are NOT charged at least 25% more than other smokers.");
+        }
+
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
