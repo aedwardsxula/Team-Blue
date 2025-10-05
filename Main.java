@@ -222,6 +222,27 @@ public class Main {
         else
             System.out.println("\n No, smokers do not have a lower average BMI.");
 
+        System.out.println("\nRegions Sorted by Average Charges (Descending):");
+
+        Map<String, Double[]> regionStats = new HashMap<>(); // [sum, count]
+        for (InsuranceRecord r : records) {
+            Double[] stat = regionStats.getOrDefault(r.region, new Double[]{0.0, 0.0});
+            stat[0] += r.charges; // sum
+            stat[1] += 1.0;       // count
+            regionStats.put(r.region, stat);
+        }
+
+        List<Map.Entry<String, Double>> avgList = new ArrayList<>();
+        for (Map.Entry<String, Double[]> entry : regionStats.entrySet()) {
+            double avg = entry.getValue()[0] / entry.getValue()[1];
+            avgList.add(Map.entry(entry.getKey(), avg));
+        }
+
+        avgList.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));
+
+        for (Map.Entry<String, Double> e : avgList)
+            System.out.printf("%-12s -> Avg charges: %.2f%n", e.getKey(), e.getValue());
+
     
     }
 }

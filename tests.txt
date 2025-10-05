@@ -25,4 +25,7 @@
 14 Arrange: Prepare a small dataset of people, each record containing at least age and smoker.
    Act: Make sure the code Filters the dataset to include only smokers, Groups the remaining records by age range, Counts how many smokers fall into each age bin, and Produces a text-based histogram (horizontal or vertical)
    Assert: Verify that Only smokers were counted, Each age range correctly reflects the number of smokers, The histogram text (using # or *) matches the expected bin counts
-   
+
+16. Arrange: Create a small dataset with each person’s age and smoker status.
+    Act: Make sure the code Separates smokers and non-smokers into two groups, Computes the average age for each group, Compares the two averages to determine whether smokers are generally younger, Returns the average smoker age and a boolean (true if smokers are younger)
+    
