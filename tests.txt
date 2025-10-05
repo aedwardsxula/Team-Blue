@@ -246,4 +246,8 @@ Arrange: Determine how many children southerners and northerners. Then
 determine the average age of northerners and southerners.  
 Act: Generate the avg amount of children of southerners and northerners and the avg age
 of southerners, in the event that there are more southerners with children print that age
-Assert: 
+Assert: The output should look like this (If average southerner age was 22):
+Southerners average more children than northerners at, on average, age: 22
+
+
+
