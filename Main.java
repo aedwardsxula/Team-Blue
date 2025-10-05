@@ -136,6 +136,24 @@ public class Main {
         System.out.printf("%6.2f | (%d)%n", bmi, bmifreq);
         }
         System.out.println("\nHistogram of Smokers vs Non-Smokers (Vertical):");
+        int smokerCount = 0;
+        int nonSmokerCount = 0;
+        List<String> smokerList = new ArrayList<>();
+
+        for (String status : smokerList) { // smokerList = ["yes", "no", "yes", ...]
+            if (status.equalsIgnoreCase("yes")) {
+            smokerCount++;
+            } else if (status.equalsIgnoreCase("no")) {
+            nonSmokerCount++;
+        }
+        }
+        for (int i = 0; i < smokerCount; i++) {
+            System.out.println("  *");
+        System.out.printf("Smokers (%d)%n", smokerCount);
+        }
+
+
+
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
