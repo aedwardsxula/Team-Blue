@@ -214,6 +214,8 @@ public class Main {
         System.out.printf("\nPeople with more than 1 child do NOT average a lower charges per child than those with exactly 1 child");
         }
 
+        System.out.println();//spacing 
+
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
