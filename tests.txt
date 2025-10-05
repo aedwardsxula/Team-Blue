@@ -28,4 +28,7 @@
 
 16. Arrange: Create a small dataset with each person’s age and smoker status.
     Act: Make sure the code Separates smokers and non-smokers into two groups, Computes the average age for each group, Compares the two averages to determine whether smokers are generally younger, Returns the average smoker age and a boolean (true if smokers are younger)
+    Asseert: Verify that The average age of smokers is correctly calculated, The average age of non-smokers is correctly calculated, The function correctly determines that smokers are, on average, younger, and The reported “average age where this is true” equals approximately 24.7 years for this dataset.
     
+18. Arrange: Prepare a dataset that includes region and BMI for each person and Define the regions.
+    Act: Make sure the code Divides records into “southern” and “northern” groups based on region, Calculates the average BMI for each group, Compares the averages to check whether Southerners have a higher average BMI, and Returns both averages and whether the hypothesis is true

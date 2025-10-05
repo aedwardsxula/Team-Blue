@@ -243,6 +243,49 @@ public class Main {
         for (Map.Entry<String, Double> e : avgList)
             System.out.printf("%-12s -> Avg charges: %.2f%n", e.getKey(), e.getValue());
 
+
+        System.out.println("\nSouthern vs Northern Smoking Analysis:");
+
+        int southSmokers = 0, southTotal = 0;
+        int northSmokers = 0, northTotal = 0;
+        double southSmokerAgeSum = 0, northSmokerAgeSum = 0;
+
+        for (InsuranceRecord r : records) {
+            String regionLower = r.region.toLowerCase();
+            if (regionLower.contains("south")) {
+                southTotal++;
+                if (r.smoker.equalsIgnoreCase("yes")) {
+                    southSmokers++;
+                    southSmokerAgeSum += r.age;
+                }
+            } else if (regionLower.contains("north")) {
+                northTotal++;
+                if (r.smoker.equalsIgnoreCase("yes")) {
+                    northSmokers++;
+                    northSmokerAgeSum += r.age;
+                }
+            }
+        }
+
+        double southSmokingRate = (southTotal == 0) ? 0 : (100.0 * southSmokers / southTotal);
+        double northSmokingRate = (northTotal == 0) ? 0 : (100.0 * northSmokers / northTotal);
+
+        double southAvgSmokerAge = (southSmokers == 0) ? 0 : southSmokerAgeSum / southSmokers;
+        double northAvgSmokerAge = (northSmokers == 0) ? 0 : northSmokerAgeSum / northSmokers;
+
+        System.out.printf("Southerners -> Total: %d | Smokers: %d (%.2f%%) | Avg smoker age: %.2f%n",
+                southTotal, southSmokers, southSmokingRate, southAvgSmokerAge);
+        System.out.printf("Northerners -> Total: %d | Smokers: %d (%.2f%%) | Avg smoker age: %.2f%n",
+                northTotal, northSmokers, northSmokingRate, northAvgSmokerAge);
+
+        if (southSmokingRate > northSmokingRate) {
+            System.out.printf("%nYES, Southerners smoke more than Northerners.%n");
+            System.out.printf("Average age of Southern smokers: %.2f years%n", southAvgSmokerAge);
+        } else {
+            System.out.printf("%nNO, Southerners do not smoke more than Northerners.%n");
+            System.out.printf("Average age of Northern smokers: %.2f years%n", northAvgSmokerAge);
+        }
+
     
     }
 }
