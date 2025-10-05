@@ -236,7 +236,8 @@ Southerners don't have on average more children than northerners.
 Test2: If southerners have the same amount of children as northerners
 Arrange: Determine how many children southerners and northerners. Then
 determine the average age of northerners and southerners.  
-Act: 
+Act: Generate the avg amount of children of southerners and northerners and the avg age
+of southerners, in the event that there are more southerners with children print that age
 Assert: 
 
 
