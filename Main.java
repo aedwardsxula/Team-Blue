@@ -296,9 +296,11 @@ public class Main {
             bmiArray.add(r.bmi);
             chargesArray.add(r.charges);
         }
+        LinearRegression lr = new LinearRegression(chargesArray, bmiArray);
+        Double lrCorrelation = LinearRegression.getCorrelation();
 
         System.out.println();
-        System.out.println("Correlation between BMI and Charges:");
+        System.out.printf("Correlation between BMI and Charges:", bmichargescorrelation);
 
 
 
