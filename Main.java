@@ -41,6 +41,14 @@ public class Main {
         int N = 10; // how many records to store
         List<InsuranceRecord> records = new ArrayList<>();
 
+        if (args.length > 0) {
+            try {
+                N = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid N value, using default (10).");
+            }
+        }
+
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = br.readLine(); // skip header
             int count = 0;
@@ -143,6 +151,7 @@ public class Main {
             smokerList.add(r.smoker);
         }
 
+
         for (String status : smokerList) { // smokerList = ["yes", "no", "yes", ...]
             if (status.equalsIgnoreCase("yes")) {
             smokerCount++;
@@ -160,7 +169,26 @@ public class Main {
         }    
         System.out.printf("Non-Smokers (%d)%n", nonSmokerCount);
 
+        List<Double> chargeForOver50 = new ArrayList<>();
+        for (InsuranceRecord r : records) {
+            if (r.age >= 50) {
+                chargeForOver50.add(r.charges);
+            }
+        }
+        List<Double> chargeForUnder20 = new ArrayList<>();
+        for (InsuranceRecord r : records) {
+            if (r.age <= 20) {
+                chargeForUnder20.add(r.charges);
+            }
+        }
+        double avgChargeOver50 = stats.mean(chargeForOver50);
+        double avgChargeUnder20 = stats.mean(chargeForUnder20);
 
+        if (avgChargeOver50 <= 2 * avgChargeUnder20) {
+            System.out.printf("\nPeople 50 or older do NOT average twice the charges as the average of people 20 and younger");
+        } else {
+        System.out.printf("\nPeople 50 or older average twice the charges as the average of people 20 and younger");
+        
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
@@ -452,4 +480,5 @@ public class Main {
         }
 
     }
+}
 }
