@@ -246,7 +246,7 @@ public class Main {
           for (Map.Entry<Integer, Integer> entry : smokerAgeFreq.entrySet()){
             int age = entry.getKey();
             int smokerAgefreq = entry.getValue();
-            System.out.printf("%3d | %s (%d)%n", age, "*".
+            System.out.printf("%3d | %s (%d)%n", age, "*".repeat(smokerAgefreq), smokerAgefreq);
           }
         System.out.println();//spacing 
 
