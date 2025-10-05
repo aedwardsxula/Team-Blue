@@ -352,3 +352,7 @@ The x,y pairs are:
 (5, 1)
 (9, 7)
 
+Test4: Linear Regression had Negative Correlation
+Arrange: 
+Act:
+Assert:
