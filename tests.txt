@@ -167,5 +167,5 @@ Test3: If BMI avg of smokers is the lower than non-smokers
 Arrange: Arrange: Use the csv to retrieve the bmi of all smokers and 
 non smokers. Then avg these bmis for each catergory, the resulting 
 avgs should be variables that can be compared
-Act: 
+Act: Generate a true or false boolean that answers if the avg bmis 
 Assert: 
