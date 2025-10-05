@@ -65,5 +65,8 @@ Arrange: Identify the different regions, and create a variable for the sum of ea
 region's total amount of records. Ensure when subtracting these record amounts to find
 the difference that the absolute value is used. 
 Act: Generate a true or false boolean that answers if the data is fair
-Assert: 
+Assert: The output should look similar to this:
+The data is fair: False
+
+
 
