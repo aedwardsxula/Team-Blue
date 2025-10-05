@@ -218,5 +218,6 @@ Test3: If southerners smoke more than northerners
 Arrange: Determine how many southerners and northerns are smoke. Average the ages
 of smokers in each catergory. Compare these ages and number of smokers per area to
 solve the problem  
-Act: 
+Act: Generate an average age of smokers, in the event that southerners smoke more than
+northerners
 Assert: 
