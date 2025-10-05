@@ -321,6 +321,8 @@ The x,y pairs are:
 Test3: Linear Regression has no correlation: 
 Arrange: Arrange: Determine the number of children and the charges of clients and make this into
 comparable variables to perform the pearson correlation coefficient operation 
-Act:
+Act: Calculate the simple linear regression of the charges versus the number of children. 
+Output the Pearson Correlation Coefficient (r). Apply your regression formula to 22 charges
+that are not in the Kaggle dataset and output both the x and y values.
 Assert:
 
