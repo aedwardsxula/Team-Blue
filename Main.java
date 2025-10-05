@@ -290,6 +290,14 @@ public class Main {
             System.out.println("\nSouthern residents do NOT have a higher average BMI than Northern residents.");
         }
 
+        List <Double> bmiArray = new ArrayList<>();
+        List <Double> chargesArray = new ArrayList<>();
+
+        System.out.println();
+        System.out.println("Correlation between BMI and Charges:");
+
+
+
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
