@@ -207,8 +207,10 @@ public class Main {
         double avgChildrenChargesOver1 = stats.mean(childrenChargesOver1);
 
         if (avgChildrenChargesOver1 < avgChildrenCharges1) {
+            System.out.println();
             System.out.printf("\nPeople with more than 1 child do average a lower charges per child than those with exactly 1 child");
         } else {
+        System.out.println();
         System.out.printf("\nPeople with more than 1 child do NOT average a lower charges per child than those with exactly 1 child");
         }
 
