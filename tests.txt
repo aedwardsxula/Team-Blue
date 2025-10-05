@@ -78,8 +78,11 @@ The data is fair: True
 
 Problem 9 Test: Range of BMIs
 Test1: If range for charge is the same as the other two ranges
-Arrange:
-Act:
+Arrange: Identify the highest and lowest charges for the bmi in 30-45 and 
+establish the other two ranges (by user input or with intervals of 15 with 
+given data) and find those values for each interval as well. Utilize these 
+values as variables to compare 
+Act: 
 Assert:
 
 
