@@ -225,6 +225,9 @@ public class Main {
             }
         }
 
+        double avgSouthernSmokers = stats.mean(southernSmokers);
+        double avgNorthernSmokers = stats.mean(northernSmokers);
+
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
