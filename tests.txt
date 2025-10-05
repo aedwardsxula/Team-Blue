@@ -254,6 +254,8 @@ Test1: Linear regression is positive
 Arrange: Determine the number of children and the charges of clients and make this into
 comparable variables to perform the pearson correlation coefficient operation 
 Act: Calculate the simple linear regression of the charges versus the number of children. 
-Output the Pearson Correlation Coefficient (r). 
-Assert: 
+Output the Pearson Correlation Coefficient (r). Apply your regression formula to 22 charges
+that are not in the Kaggle dataset and output both the x and y values.
+Assert: The output should look like this if the :
+The Pearson Correlation Coefficient(r) is 1
 
