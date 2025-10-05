@@ -170,3 +170,9 @@ avgs should be variables that can be compared
 Act: Generate a true or false boolean that answers if the avg bmis 
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 Smokers have a lower average bmi than non-smokers: True
+
+Problem 15: Sorting charges in descenging order (averages)
+Test1: If two regions have the same average
+Arrange: 
+Act: 
+Assert: 
