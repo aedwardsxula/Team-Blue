@@ -146,6 +146,8 @@ Smokers have higher charges and wider range of charges than non-smokers: True
 
 Problem 13: Avg BMI, smokers vs non smokers
 Test1: If BMI avg of smokers is the same as non-smokers
-Arrange: 
+Arrange: Use the csv to retrieve the bmi of all smokers and 
+non smokers. Then avg these bmis for each catergory, the resulting 
+avgs should be variables that can be compared
 Act: 
 Assert: 
