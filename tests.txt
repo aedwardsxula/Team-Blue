@@ -109,7 +109,7 @@ Test1: If there are no smokers in the dataset
 Arrange: Use the yes/no portion in the given csv to determine if a client is a smoker
 or not and from those two catergories find the highest charge and the range. The highest charges
 and the range will be used as variables to compare 
-Act: Generate a ture or false boolean that answers if the charges and range is higher for smokers
+Act: Generate a true or false boolean that answers if the charges and range is higher for smokers
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 Smokers have higher charges and wider range of charges than non-smokers: False
 
@@ -117,7 +117,7 @@ Test2: If the smokers in the dataset have a higher charges but not wider range
 Arrange: Use the yes/no portion in the given csv to determine if a client is a smoker
 or not and from those two catergories find the highest charge and the range. The highest charges
 and the range will be used as variables to compare 
-Act: Generate a ture or false boolean that answers if the charges and range is higher for smokers
+Act: Generate a true or false boolean that answers if the charges and range is higher for smokers
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 Smokers have higher charges and wider range of charges than non-smokers: False
 
@@ -125,5 +125,5 @@ Test3: If the smokers in the dataset have same charges and range of charges
 Arrange:Use the yes/no portion in the given csv to determine if a client is a smoker
 or not and from those two catergories find the highest charge and the range. The highest charges
 and the range will be used as variables to compare 
-Act:
+Act: Generate a true or false boolean that answers if the charges and range is higher for smokers
 Assert: 
