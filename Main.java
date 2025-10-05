@@ -109,6 +109,7 @@ public class Main {
                 stats.max(list));
         }
         };
+        displayStats.run();
         System.out.println("\nHistogram of Ages:");
 
         Map<Integer, Integer> ageFreq = new TreeMap<>();
