@@ -157,7 +157,44 @@ public class Main {
         else
             System.out.println("\n NO, BMI 30–45 does NOT have the greatest range of charges.");
 
-    
+
+        System.out.println("\nSmoker vs Non-Smoker Charges Comparison:");
+
+        double minSmoker = Double.POSITIVE_INFINITY, maxSmoker = Double.NEGATIVE_INFINITY, sumSmoker = 0;
+        double minNon = Double.POSITIVE_INFINITY, maxNon = Double.NEGATIVE_INFINITY, sumNon = 0;
+        int countSmoker = 0, countNon = 0;
+
+        for (InsuranceRecord r : records) {
+            if (r.smoker.equals("yes")) {
+                minSmoker = Math.min(minSmoker, r.charges);
+                maxSmoker = Math.max(maxSmoker, r.charges);
+                sumSmoker += r.charges;
+                countSmoker++;
+            } else {
+                minNon = Math.min(minNon, r.charges);
+                maxNon = Math.max(maxNon, r.charges);
+                sumNon += r.charges;
+                countNon++;
+            }
+        }
+
+        double meanSmoker = (countSmoker == 0) ? 0 : sumSmoker / countSmoker;
+        double meanNon = (countNon == 0) ? 0 : sumNon / countNon;
+        double rangeSmoker = (minSmoker == Double.POSITIVE_INFINITY) ? 0 : (maxSmoker - minSmoker);
+        double rangeNon = (minNon == Double.POSITIVE_INFINITY) ? 0 : (maxNon - minNon);
+        
+        System.out.printf("Smokers     -> Count: %d | Avg charges: %.2f | Range: %.2f%n",
+                countSmoker, meanSmoker, rangeSmoker);
+        System.out.printf("Non-Smokers -> Count: %d | Avg charges: %.2f | Range: %.2f%n",
+                countNon, meanNon, rangeNon);
+
+        boolean higherAvg = meanSmoker > meanNon;
+        boolean widerRange = rangeSmoker > rangeNon;
+
+        if (higherAvg && widerRange)
+            System.out.println("\n Hypothesis confirmed: Smokers have higher and wider charge ranges.");
+        else
+            System.out.println("\n Hypothesis not fully confirmed.");
 
     
     }

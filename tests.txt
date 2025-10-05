@@ -189,3 +189,7 @@ Assert:
     Act: Run the code that Groups records by the number of children, Calculates the average charge per child for each group, Checks if the average charge per child decreases as the number of children increases (True or False)
     Assert: The per-child charge values were calculated correctly,The relationship between number of children and per-child charge is correctly analyzed,The function returns the expected result (true for this dataset)
 
+12 Arrange: Prepare a small dataset of smokers only, each with region and charges.
+   Acts: Make sure the function Filters to smokers, Splits them into South, Computes the average, and Checks whether.
+   Assert: Verify the computed averages match the manual values (within a small tolerance), Verify the comparison logic is correct, and Verify the final boolean result is TRUE for this dataset. 
+
