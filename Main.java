@@ -142,7 +142,6 @@ public class Main {
         for (InsuranceRecord r : records) {
             smokerList.add(r.smoker);
         }
-        System.out.println(smokerList);
 
         for (String status : smokerList) { // smokerList = ["yes", "no", "yes", ...]
             if (status.equalsIgnoreCase("yes")) {
@@ -159,7 +158,7 @@ public class Main {
         for (int i = 0; i < nonSmokerCount; i++) {
             System.out.println("  *");
         }    
-                System.out.printf("Non-Smokers (%d)%n", nonSmokerCount);
+        System.out.printf("Non-Smokers (%d)%n", nonSmokerCount);
 
 
           System.out.println("\nNumber of Records by Children:");
