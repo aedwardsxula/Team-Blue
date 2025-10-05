@@ -22,12 +22,17 @@
 // Act: Calculate average age for smokers and non-smokers.
 // Assert: Verify smoker average age < non-smoker average age.
 
+//Test for #19
+// Arrange: Create dataset where Southerners have more children (avg 3) 
+// than Northerners (avg 1), with recorded ages for each group.
+// Act: Calculate average number of children by region and find average age 
+// of Southern clients where this holds true.
+// Assert: Verify South avg children > North avg children, and output the average age of Southerners.
+
 // Test for #20
 // Arrange: BMI = [20,25,30,35,40], Charges = [2000,4000,6000,8000,10000].
 // Act: Compute regression (charges vs BMI) and Pearson r; predict 11 new BMI values.
 // Assert: r > 0.9 and predicted charges rise with increasing BMI.
-
-
 
 
 
