@@ -310,6 +310,8 @@ public class Main {
 
 
         LinearRegression lr2 = new LinearRegression(fakevalues1, fakevalues2);
+        System.out.println();
+        lr2.printData();
 
 
 
