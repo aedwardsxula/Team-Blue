@@ -106,7 +106,9 @@ The range of charges for bmi in 30-45 are greater than the other two ranges: Fal
 
 Problem 11: Charges of Smokers vs NonSmokers
 Test1: If there are no smokers in the dataset
-Arrange:
+Arrange: Use the yes/no portion in the given csv to determine if a client is a smoker
+or not and from those two catergories find the highest charge and the range. The highest charges
+and the range will be used as variables to compare 
 Act:
 Assert:
 
