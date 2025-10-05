@@ -224,3 +224,9 @@ Assert: If the amount of southern smokers were 5 and northern 3, and the average
 25 and 30 respectively, the output should look like this
 The average age where southereners smoke more than northerners is: 25
 
+Problem 19: Number of Children, Southerners vs northerners
+Test1: If southerners have less children than northerners
+Arrange: 
+Act: 
+Assert: 
+
