@@ -65,7 +65,7 @@ Arrange: Identify the different regions, and create a variable for the sum of ea
 region's total amount of records. Ensure when subtracting these record amounts to find
 the difference that the absolute value is used. 
 Act: Generate a true or false boolean that answers if the data is fair
-Assert: The output should look similar to this:
+Assert: The output should look similar to this(similar in terms of text not boolen output):
 The data is fair: False
 
 Test2: If data differs at exactly 5%
@@ -73,7 +73,7 @@ Arrange: Identify the different regions, and create a variable for the sum of ea
 region's total amount of records. Ensure when subtracting these record amounts to find
 the difference that the absolute value is used. 
 Act: Generate a true or false boolean that answers if the data is fair
-Assert: The output should look similar to this:
+Assert: The output should look similar to this(similar in terms of text not boolen output):
 The data is fair: True
 
 Problem 9 Test: Range of BMIs
@@ -83,7 +83,7 @@ establish the other two ranges (by user input or with intervals of 15 with
 given data) and find those values for each interval as well. Utilize these 
 values as variables to compare (use absolute value whenn finding range values)
 Act: Generate a true or false boolean that answers if the range is greater
-Assert: The output should look similar to this:
+Assert: The output should look similar to this(similar in terms of text not boolen output):
 The range of charges for bmi in 30-45 are greater than the other two ranges: False
 
 Test2: If range for charge is the greater as the other two ranges
@@ -92,7 +92,7 @@ establish the other two ranges (by user input or with intervals of 15 with
 given data) and find those values for each interval as well. Utilize these 
 values as variables to compare (use absolute value whenn finding range values)
 Act: Generate a true or false boolean that answers if the range is greater
-Assert: The output should look similar to this:
+Assert: The output should look similar to this(similar in terms of text not boolen output):
 The range of charges for bmi in 30-45 are greater than the other two ranges: True
 
 Test3: If range for charge is less than the other two ranges
@@ -101,7 +101,7 @@ establish the other two ranges (by user input or with intervals of 15 with
 given data) and find those values for each interval as well. Utilize these 
 values as variables to compare (use absolute value whenn finding range values)
 Act: Generate a true or false boolean that answers if the range is greater
-Assert: The output should look similar to this:
+Assert: The output should look similar to this(similar in terms of text not boolen output):
 The range of charges for bmi in 30-45 are greater than the other two ranges: False
 
 
