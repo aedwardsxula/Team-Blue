@@ -305,6 +305,14 @@ public class Main {
         System.out.println();
         System.out.printf("Correlation between BMI and Charges: %6.4f%n", lrCorrelation);
 
+        double[] fakevalues1 = {17.4, 20.8, 23.1, 25.6, 27.9, 31.5, 34.2, 36.8, 39.7, 42.3, 45.9};
+        double[] fakevalues2 = {17.8, 19.6, 22.4, 24.1, 27.7, 30.3, 33.9, 35.8, 38.2, 41.5, 45.7};
+
+
+        LinearRegression lr2 = new LinearRegression(fakevalues1, fakevalues2);
+
+
+
 
 
         System.out.println();//spacing 

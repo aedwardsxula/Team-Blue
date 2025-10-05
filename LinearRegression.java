@@ -57,6 +57,14 @@ public class LinearRegression {
     double denominator = Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
 
     return numerator / denominator;
+
+    
+}
+    public void printData() {
+    System.out.println("x\t\ty");
+    for (int i = 0; i < x.length; i++) {
+        System.out.printf("%.1f\t\t%.1f%n", x[i], y[i]);
+    }
 }
 
 }
