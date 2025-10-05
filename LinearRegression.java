@@ -34,4 +34,8 @@ public class LinearRegression {
         return slope * newX + intercept;
     }
 
+    public double getSlope() {
+        return slope;
+    }
+
 }
