@@ -176,5 +176,5 @@ Test1: If two regions have the same average
 Arrange: Establish the four regions and find the average charges
 for each region. This should result in four comparable variables
 that can be put in descending order. 
-Act:
+Act: Generate a list of descending order regions based on their avg charge
 Assert: 
