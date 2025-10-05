@@ -287,5 +287,42 @@ public class Main {
         }
 
     
+        System.out.println("\nSouthern vs Northern Children Analysis:");
+
+        int southChildTotal = 0, northChildTotal = 0;
+        int southChildrenSum = 0, northChildrenSum = 0;
+        double southAgeSumForChildren = 0, northAgeSumForChildren = 0;
+
+        for (InsuranceRecord r : records) {
+            String regionLower = r.region.toLowerCase();
+            if (regionLower.contains("south")) {
+                southChildTotal++;
+                southChildrenSum += r.children;
+                southAgeSumForChildren += r.age;
+            } else if (regionLower.contains("north")) {
+                northChildTotal++;
+                northChildrenSum += r.children;
+                northAgeSumForChildren += r.age;
+            }
+        }
+
+        double southAvgChildren = (southChildTotal == 0) ? 0 : (1.0 * southChildrenSum / southChildTotal);
+        double northAvgChildren = (northChildTotal == 0) ? 0 : (1.0 * northChildrenSum / northChildTotal);
+
+        double southAvgAgeForChildren = (southChildTotal == 0) ? 0 : (southAgeSumForChildren / southChildTotal);
+        double northAvgAgeForChildren = (northChildTotal == 0) ? 0 : (northAgeSumForChildren / northChildTotal);
+
+        System.out.printf("Southerners -> Total: %d | Avg children: %.2f | Avg age: %.2f%n",
+                southChildTotal, southAvgChildren, southAvgAgeForChildren);
+        System.out.printf("Northerners -> Total: %d | Avg children: %.2f | Avg age: %.2f%n",
+                northChildTotal, northAvgChildren, northAvgAgeForChildren);
+
+        if (southAvgChildren > northAvgChildren) {
+            System.out.printf("%nYES, Southerners have more children on average than Northerners.%n");
+            System.out.printf("Average age of Southerners when this is true: %.2f years%n", southAvgAgeForChildren);
+        } else {
+            System.out.printf("%nNO, Southerners do not have more children on average.%n");
+            System.out.printf("Average age of Northerners when this is true: %.2f years%n", northAvgAgeForChildren);
+        }
     }
 }
