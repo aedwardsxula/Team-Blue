@@ -69,6 +69,18 @@ public class Main {
         for (InsuranceRecord r : records) {
             System.out.println(r);
         }
+        //Put data into lists for stats
+        List<Integer> ages = new ArrayList<>();
+        List<Double> bmis = new ArrayList<>();
+        List<Integer> children = new ArrayList<>();
+        List<Double> charges = new ArrayList<>();
+
+        for (InsuranceRecord r : records) {
+            ages.add(r.age);
+            bmis.add(r.bmi);
+            children.add(r.children);
+            charges.add(r.charges);
+        }
         System.out.println("\nHistogram of Ages:");
 
         Map<Integer, Integer> ageFreq = new TreeMap<>();
