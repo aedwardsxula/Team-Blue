@@ -242,6 +242,7 @@ Assert: The output should look like this:
 Southerners don't have on average more children than northerners. 
 
 Test3: If southerners have more childrean than northerners
-Arrange: 
+Arrange: Determine how many children southerners and northerners. Then
+determine the average age of northerners and southerners.  
 Act: 
 Assert: 
