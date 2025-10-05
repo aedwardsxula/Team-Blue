@@ -92,7 +92,8 @@ establish the other two ranges (by user input or with intervals of 15 with
 given data) and find those values for each interval as well. Utilize these 
 values as variables to compare (use absolute value whenn finding range values)
 Act: Generate a true or false boolean that answers if the range is greater
-Assert: 
+Assert: The output should look similar to this:
+The range of charges for bmi in 30-45 are greater than the other two ranges: True
 
 
 
