@@ -251,7 +251,14 @@ public class Main {
         
         List<Integer> smokers20andYounger = new ArrayList<>();
         List<Integer> smokers50andOlder = new ArrayList<>();
-        
+
+        for (InsuranceRecord r : records) {
+            if (r.smoker.equalsIgnoreCase("yes") && r.age <= 20) {
+                smokers20andYounger.add(r.age);
+            } else if (r.smoker.equalsIgnoreCase("yes") && r.age >= 50) {
+                smokers50andOlder.add(r.age);
+            }
+        }
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
