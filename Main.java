@@ -282,8 +282,6 @@ public class Main {
                 int freq = entry.getValue();
                 System.out.printf("%3d | %s (%d)%n", children, "*".repeat(freq), freq);
             }
-    
-
 
 
     
