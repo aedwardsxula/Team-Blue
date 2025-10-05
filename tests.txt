@@ -69,7 +69,9 @@ Assert: The output should look similar to this:
 The data is fair: False
 
 Test2: If data differs at exactly 5%
-Arrange: 
+Arrange: Identify the different regions, and create a variable for the sum of each
+region's total amount of records. Ensure when subtracting these record amounts to find
+the difference that the absolute value is used. 
 Act: 
 Assert: 
 
