@@ -168,7 +168,13 @@ public class Main {
         }    
         System.out.printf("Non-Smokers (%d)%n", nonSmokerCount);
 
-        System.out.println("\n People 50 or older average twice the charges as the average of people 20 and younger: ");
+        List<Double> chargeForOver50 = new ArrayList<>();
+        for (InsuranceRecord r : records) {
+            if (r.age >= 50) {
+                chargeForOver50.add(r.charges);
+            }
+        }
+        System.out.printf("\n People 50 or older average twice the charges as the average of people 20 and younger: ", chargeForAge);
         
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
