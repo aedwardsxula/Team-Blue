@@ -217,7 +217,7 @@ public class Main {
         List<Double> southernSmokers = new ArrayList<>();
         List<Double> northernSmokers = new ArrayList<>();
 
-        for insuranceRecord r : records) {
+        for (InsuranceRecord r : records) {
             if (r.smoker.equalsIgnoreCase("yes") && (r.region.equalsIgnoreCase("southwest") || r.region.equalsIgnoreCase("southeast"))) {
                 southernSmokers.add(r.charges);
             } else if (r.smoker.equalsIgnoreCase("yes") && (r.region.equalsIgnoreCase("northwest") || r.region.equalsIgnoreCase("northeast"))) {
