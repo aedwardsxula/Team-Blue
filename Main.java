@@ -151,7 +151,10 @@ public class Main {
             System.out.println("  *");
         System.out.printf("Smokers (%d)%n", smokerCount);
         }
-
+        for (int i = 0; i < nonSmokerCount; i++) {
+            System.out.println("  *");
+        System.out.printf("Non-Smokers (%d)%n", nonSmokerCount);
+        }    
 
 
           System.out.println("\nNumber of Records by Children:");
