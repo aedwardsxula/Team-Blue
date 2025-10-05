@@ -41,6 +41,14 @@ public class Main {
         int N = 10; // how many records to store
         List<InsuranceRecord> records = new ArrayList<>();
 
+        if (args.length > 0) {
+            try {
+                N = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid N value, using default (10).");
+            }
+        }
+
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line = br.readLine(); // skip header
             int count = 0;
