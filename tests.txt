@@ -251,7 +251,8 @@ Southerners average more children than northerners at, on average, age: 22
 
 Problem 21: Linear regression of charges vs number of children
 Test1: Linear regression is positive
-Arrange: 
+Arrange: Determine the number of children and the charges of clients and make this into
+comparable variables to perform the pearson correlation coefficient operation 
 Act: 
 Assert: 
 
