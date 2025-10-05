@@ -21,4 +21,8 @@
 12 Arrange: Prepare a small dataset of smokers only, each with region and charges.
    Acts: Make sure the function Filters to smokers, Splits them into South, Computes the average, and Checks whether.
    Assert: Verify the computed averages match the manual values (within a small tolerance), Verify the comparison logic is correct, and Verify the final boolean result is TRUE for this dataset. 
+
+14 Arrange: Prepare a small dataset of people, each record containing at least age and smoker.
+   Act: Make sure the code Filters the dataset to include only smokers, Groups the remaining records by age range, Counts how many smokers fall into each age bin, and Produces a text-based histogram (horizontal or vertical)
+   Assert: Verify that Only smokers were counted, Each age range correctly reflects the number of smokers, The histogram text (using # or *) matches the expected bin counts
    
