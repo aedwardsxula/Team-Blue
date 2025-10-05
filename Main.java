@@ -248,6 +248,28 @@ public class Main {
             int smokerAgefreq = entry.getValue();
             System.out.printf("%3d | %s (%d)%n", age, "*".repeat(smokerAgefreq), smokerAgefreq);
           }
+        
+        List<Integer> smokers20andYounger = new ArrayList<>();
+        List<Integer> smokers50andOlder = new ArrayList<>();
+
+        for (InsuranceRecord r : records) {
+            if (r.smoker.equalsIgnoreCase("yes") && r.age <= 20) {
+                smokers20andYounger.add(r.age);
+            } else if (r.smoker.equalsIgnoreCase("yes") && r.age >= 50) {
+                smokers50andOlder.add(r.age);
+            }
+        }
+        double avgSmokers20andYounger = stats.mean(smokers20andYounger);
+        double avgSmokers50andOlder = stats.mean(smokers50andOlder);
+
+        if (avgSmokers20andYounger > avgSmokers50andOlder) {
+            System.out.println();
+            System.out.printf("\n The average age that young people smoker more than old people is: ", avgSmokers20andYounger);
+        } else {
+            System.out.println();
+            System.out.println("\n There is no average age where young people smoke more than old people.");
+        }
+
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
