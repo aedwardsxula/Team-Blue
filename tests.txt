@@ -113,3 +113,7 @@ Act: Generate a ture or false boolen that answers if the charges and range is hi
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 Smokers have higher charges and wider range of charges than non-smokers: False
 
+Test2: If the smokers in the dataset have a higher charges but not higher range
+Arrange: 
+Act: 
+Assert: 
