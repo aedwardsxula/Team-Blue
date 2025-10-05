@@ -237,7 +237,16 @@ public class Main {
         }
         System.out.println();
         System.out.println("\nHistogram of Age Distribution for Smokers:");
-        
+        Map<Integer, Integer> smokerAgeFreq = new TreeMap<>();
+        for (InsuranceRecord r : records){
+            if (r.smoker.equalsIgnoreCase("yes")){
+                smokerAgeFreq.put(r.age, smokerAgeFreq.getOrDefault(r.age, 0) + 1);
+            }
+        }
+          for (Map.Entry<Integer, Integer> entry : smokerAgeFreq.entrySet()){
+            int age = entry.getKey();
+            int smokerAgefreq = entry.getValue();
+            System.out.printf("%3d | %s (%d)%n", age, "*".
 
         System.out.println();//spacing 
 
