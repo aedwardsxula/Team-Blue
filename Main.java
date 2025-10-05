@@ -292,6 +292,10 @@ public class Main {
 
         List <Double> bmiArray = new ArrayList<>();
         List <Double> chargesArray = new ArrayList<>();
+        for (InsuranceRecord r : records) {
+            bmiArray.add(r.bmi);
+            chargesArray.add(r.charges);
+        }
 
         System.out.println();
         System.out.println("Correlation between BMI and Charges:");
