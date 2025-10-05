@@ -109,6 +109,6 @@ Test1: If there are no smokers in the dataset
 Arrange: Use the yes/no portion in the given csv to determine if a client is a smoker
 or not and from those two catergories find the highest charge and the range. The highest charges
 and the range will be used as variables to compare 
-Act:
+Act: Generate a ture or false boolen that answers if the charges and range is higher for smokers
 Assert:
 
