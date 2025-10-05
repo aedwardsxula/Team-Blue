@@ -214,6 +214,28 @@ public class Main {
         System.out.printf("\nPeople with more than 1 child do NOT average a lower charges per child than those with exactly 1 child");
         }
 
+        List<Double> southernSmokers = new ArrayList<>();
+        List<Double> northernSmokers = new ArrayList<>();
+
+        for (InsuranceRecord r : records) {
+            if (r.smoker.equalsIgnoreCase("yes") && (r.region.equalsIgnoreCase("southwest") || r.region.equalsIgnoreCase("southeast"))) {
+                southernSmokers.add(r.charges);
+            } else if (r.smoker.equalsIgnoreCase("yes") && (r.region.equalsIgnoreCase("northwest") || r.region.equalsIgnoreCase("northeast"))) {
+                northernSmokers.add(r.charges);
+            }
+        }
+
+        double avgSouthernSmokers = stats.mean(southernSmokers);
+        double avgNorthernSmokers = stats.mean(northernSmokers);
+
+        if (avgSouthernSmokers >= .25 * avgNorthernSmokers) {
+            System.out.println();
+            System.out.println("\nSouthern smokers are charged are least 25% more than other smokers.");
+        } else {
+            System.out.println();
+            System.out.println("\nSouthern smokers are NOT charged at least 25% more than other smokers.");
+        }
+
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
