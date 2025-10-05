@@ -313,6 +313,27 @@ public class Main {
         System.out.println();
         lr2.printData();
 
+        List<Double> chargesArray2 = new ArrayList<>();
+        List<Double> regionArray = new ArrayList<>();
+        for (InsuranceRecord r : records) {
+            regionArray.add(r.region.equals("northeast") ? 1.0 : r.region.equals("northwest") ? 2.0 : r.region.equals("southeast") ? 3.0 : 4.0);
+            chargesArray2.add(r.charges);
+        }
+        // convert Lists to primitive double[] for existing LinearRegression constructor
+        double[] regionArr = regionArray.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] chargesArr2 = chargesArray2.stream().mapToDouble(Double::doubleValue).toArray();
+
+        System.out.println();
+        LinearRegression lr3 = new LinearRegression(chargesArr2, regionArr);
+        Double lrCorrelation2 = lr3.getCorrelation();
+        System.out.printf("Correlation between Region and Charges: %6.4f%n", lrCorrelation2);
+
+        double[] fakevalues3 = {17.3, 18.1, 18.9, 19.5, 20.7, 21.4, 22.0, 22.8, 23.4, 24.6, 25.2, 25.9, 26.7, 27.3, 28.5, 29.2, 30.0, 31.4, 32.1, 33.6, 34.3, 35.0, 35.8, 36.4, 37.1, 38.6, 39.4, 40.2, 41.5, 42.7, 43.9, 45.1, 45.8};
+        double[] fakevalues4 = {17.2, 18.0, 18.8, 19.3, 20.6, 21.1, 22.4, 23.0, 23.7, 24.5, 25.8, 26.6, 27.2, 28.0, 28.9, 29.5, 30.7, 31.2, 32.6, 33.3, 34.1, 34.9, 35.6, 36.2, 37.4, 38.0, 39.3, 40.1, 41.7, 42.5, 43.8, 44.6, 45.9};
+        
+        LinearRegression lr4 = new LinearRegression(fakevalues3, fakevalues4);
+        System.out.println();
+        lr4.printData();
 
 
 
