@@ -122,6 +122,19 @@ public class Main {
             int freq = entry.getValue();
             System.out.printf("%3d | %s (%d)%n", age, "*".repeat(freq), freq);
          }
+        System.out.println("\nHistogram of BMI (Vertical):");
+        Map<Double, Integer> bmiFreq = new TreeMap<>();
+        for (InsuranceRecord r : records) {
+            bmiFreq.put(r.bmi, bmiFreq.getOrDefault(r.bmi, 0) + 1);
+        }
+        for (Map.Entry<Double, Integer> entry : bmiFreq.entrySet()){
+            double bmi = entry.getKey();
+            int bmifreq = entry.getValue();
+            for (int i = 0; i < bmifreq; i++) {
+                System.out.println("  *"); // each star on its own line
+            }
+        System.out.printf("%6.2f | (%d)%n", bmi, bmifreq);
+        }
 
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
