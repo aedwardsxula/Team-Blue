@@ -86,6 +86,10 @@ Act: Generate a true or false boolean that answers if the range is greater
 Assert: The output should look similar to this:
 The range of charges for bmi in 30-45 are greater than the other two ranges: False
 
+Test2: If range for charge is the greater as the other two ranges
+Arrange: 
+Act: 
+Assert: 
 
 
 
