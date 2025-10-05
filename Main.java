@@ -81,6 +81,7 @@ public class Main {
             children.add(r.children);
             charges.add(r.charges);
         }
+        StatsHelper stats = new StatsHelper();
         System.out.println("\nHistogram of Ages:");
 
         Map<Integer, Integer> ageFreq = new TreeMap<>();
