@@ -233,3 +233,9 @@ of southerners, in the event that there are more southerners with children print
 Assert: The output should look like this:
 Southerners don't have on average more children than northerners. 
 
+Test2: If southerners have the same amount of children as northerners
+Arrange: 
+Act: 
+Assert: 
+
+
