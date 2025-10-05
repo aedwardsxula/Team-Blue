@@ -189,3 +189,17 @@ Assert:
     Act: Run the code that Groups records by the number of children, Calculates the average charge per child for each group, Checks if the average charge per child decreases as the number of children increases (True or False)
     Assert: The per-child charge values were calculated correctly,The relationship between number of children and per-child charge is correctly analyzed,The function returns the expected result (true for this dataset)
 
+12 Arrange: Prepare a small dataset of smokers only, each with region and charges.
+   Acts: Make sure the function Filters to smokers, Splits them into South, Computes the average, and Checks whether.
+   Assert: Verify the computed averages match the manual values (within a small tolerance), Verify the comparison logic is correct, and Verify the final boolean result is TRUE for this dataset. 
+
+14 Arrange: Prepare a small dataset of people, each record containing at least age and smoker.
+   Act: Make sure the code Filters the dataset to include only smokers, Groups the remaining records by age range, Counts how many smokers fall into each age bin, and Produces a text-based histogram (horizontal or vertical)
+   Assert: Verify that Only smokers were counted, Each age range correctly reflects the number of smokers, The histogram text (using # or *) matches the expected bin counts
+
+16. Arrange: Create a small dataset with each person’s age and smoker status.
+    Act: Make sure the code Separates smokers and non-smokers into two groups, Computes the average age for each group, Compares the two averages to determine whether smokers are generally younger, Returns the average smoker age and a boolean (true if smokers are younger)
+    Asseert: Verify that The average age of smokers is correctly calculated, The average age of non-smokers is correctly calculated, The function correctly determines that smokers are, on average, younger, and The reported “average age where this is true” equals approximately 24.7 years for this dataset.
+    
+18. Arrange: Prepare a dataset that includes region and BMI for each person and Define the regions.
+    Act: Make sure the code Divides records into “southern” and “northern” groups based on region, Calculates the average BMI for each group, Compares the averages to check whether Southerners have a higher average BMI, and Returns both averages and whether the hypothesis is true
