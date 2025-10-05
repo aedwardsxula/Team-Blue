@@ -206,6 +206,8 @@ Assert: If there are no southern smokers the output should look like this:
 There is no average age where southereners smoke more than northerners 
 
 Test2: If southerners smoke less than northerners
-Arrange:
+Arrange: Determine how many southerners and northerns are smoke. Average the ages
+of smokers in each catergory. Compare these ages and number of smokers per area to
+solve the problem  
 Act: 
 Assert: 
