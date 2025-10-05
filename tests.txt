@@ -164,6 +164,8 @@ Assert: The output should look similar to this(similar in terms of text not bool
 Smokers have a lower average bmi than non-smokers: False
 
 Test3: If BMI avg of smokers is the lower than non-smokers
-Arrange: 
+Arrange: Arrange: Use the csv to retrieve the bmi of all smokers and 
+non smokers. Then avg these bmis for each catergory, the resulting 
+avgs should be variables that can be compared
 Act: 
 Assert: 
