@@ -104,5 +104,9 @@ Act: Generate a true or false boolean that answers if the range is greater
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 The range of charges for bmi in 30-45 are greater than the other two ranges: False
 
-
+Problem 11: Charges of Smokers vs NonSmokers
+Test1: If there are no smokers in the dataset
+Arrange:
+Act:
+Assert:
 
