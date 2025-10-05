@@ -126,6 +126,38 @@ public class Main {
         System.out.println("Is the data fair? " + (isFair ? "YES" : "NO"));
 
 
+        System.out.println("\nCharges Range Comparison by BMI Group:");
+        double minLow = Double.POSITIVE_INFINITY, maxLow = Double.NEGATIVE_INFINITY;
+        double minMid = Double.POSITIVE_INFINITY, maxMid = Double.NEGATIVE_INFINITY;
+        double minHigh = Double.POSITIVE_INFINITY, maxHigh = Double.NEGATIVE_INFINITY;
+
+        for (InsuranceRecord r : records) {
+            if (r.bmi < 30) {
+                minLow = Math.min(minLow, r.charges);
+                maxLow = Math.max(maxLow, r.charges);
+            } else if (r.bmi <= 45) {
+                minMid = Math.min(minMid, r.charges);
+                maxMid = Math.max(maxMid, r.charges);
+            } else {
+                minHigh = Math.min(minHigh, r.charges);
+                maxHigh = Math.max(maxHigh, r.charges);
+            }
+        }
+
+        double rangeLow = (minLow == Double.POSITIVE_INFINITY) ? 0 : (maxLow - minLow);
+        double rangeMid = (minMid == Double.POSITIVE_INFINITY) ? 0 : (maxMid - minMid);
+        double rangeHigh = (minHigh == Double.POSITIVE_INFINITY) ? 0 : (maxHigh - minHigh);
+
+        System.out.printf("BMI < 30   : Range of charges = %.2f%n", rangeLow);
+        System.out.printf("BMI 30-45  : Range of charges = %.2f%n", rangeMid);
+        System.out.printf("BMI > 45   : Range of charges = %.2f%n", rangeHigh);
+
+        if (rangeMid > rangeLow && rangeMid > rangeHigh)
+            System.out.println("\n YES, BMI 30–45 has the greatest range of charges.");
+        else
+            System.out.println("\n NO, BMI 30–45 does NOT have the greatest range of charges.");
+
+    
 
     
     }
