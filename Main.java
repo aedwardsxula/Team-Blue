@@ -269,6 +269,26 @@ public class Main {
             System.out.println();
             System.out.println("\n There is no average age where young people smoke more than old people.");
         }
+        List<Double> southernBMI = new ArrayList<>();
+        List<Double> northernBMI = new ArrayList<>();
+
+        for (InsuranceRecord r : records) {
+            if (r.region.equalsIgnoreCase("southwest") || r.region.equalsIgnoreCase("southeast")) {
+                southernBMI.add(r.bmi);
+            } else if (r.region.equalsIgnoreCase("northwest") || r.region.equalsIgnoreCase("northeast")) {
+                northernBMI.add(r.bmi); 
+            }
+        }
+        double avgSouthernBMI = stats.mean(southernBMI);
+        double avgNorthernBMI = stats.mean(northernBMI);
+
+        if (avgSouthernBMI > avgNorthernBMI) {
+            System.out.println();
+            System.out.printf("\nSouthern residents have a higher average BMI than Northern residents at an average BMI of: %6.2f%n", avgSouthernBMI);
+        } else {
+            System.out.println();
+            System.out.println("\nSouthern residents do NOT have a higher average BMI than Northern residents.");
+        }
 
         System.out.println();//spacing 
 
