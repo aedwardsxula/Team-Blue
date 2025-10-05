@@ -249,5 +249,9 @@ of southerners, in the event that there are more southerners with children print
 Assert: The output should look like this (If average southerner age was 22):
 Southerners average more children than northerners at, on average, age: 22
 
-
+Problem 21: Linear regression of charges vs number of children
+Test1: Linear regression is positive
+Arrange: 
+Act: 
+Assert: 
 
