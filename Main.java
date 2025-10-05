@@ -247,7 +247,7 @@ public class Main {
             int age = entry.getKey();
             int smokerAgefreq = entry.getValue();
             System.out.printf("%3d | %s (%d)%n", age, "*".
-
+          }
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
