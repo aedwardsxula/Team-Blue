@@ -94,6 +94,70 @@ public class Main {
             }
 
 
+         System.out.println("\nRegion Distribution & Fairness (≤ 5 percentage points spread):");
+        int total = records.size();
+        if (total == 0) {
+            System.out.println("No records loaded; cannot evaluate fairness.");
+            return;
+        }
+
+        // Count by region (case-insensitive sort for neat output)
+        Map<String, Integer> regionCounts = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        for (InsuranceRecord r : records) {
+            regionCounts.put(r.region, regionCounts.getOrDefault(r.region, 0) + 1);
+        }
+
+        double minPct = Double.POSITIVE_INFINITY;
+        double maxPct = Double.NEGATIVE_INFINITY;
+
+        for (Map.Entry<String, Integer> e : regionCounts.entrySet()) {
+            String region = e.getKey();
+            int cnt = e.getValue();
+            double pct = (100.0 * cnt) / total;
+            minPct = Math.min(minPct, pct);
+            maxPct = Math.max(maxPct, pct);
+            System.out.printf("  %-12s : %4d (%.2f%%)%n", region, cnt, pct);
+        }
+
+        double spread = maxPct - minPct;
+        boolean isFair = spread <= 5.0;
+
+        System.out.printf("%nSpread between largest and smallest region shares: %.2f percentage points%n", spread);
+        System.out.println("Is the data fair? " + (isFair ? "YES" : "NO"));
+
+
+        System.out.println("\nCharges Range Comparison by BMI Group:");
+        double minLow = Double.POSITIVE_INFINITY, maxLow = Double.NEGATIVE_INFINITY;
+        double minMid = Double.POSITIVE_INFINITY, maxMid = Double.NEGATIVE_INFINITY;
+        double minHigh = Double.POSITIVE_INFINITY, maxHigh = Double.NEGATIVE_INFINITY;
+
+        for (InsuranceRecord r : records) {
+            if (r.bmi < 30) {
+                minLow = Math.min(minLow, r.charges);
+                maxLow = Math.max(maxLow, r.charges);
+            } else if (r.bmi <= 45) {
+                minMid = Math.min(minMid, r.charges);
+                maxMid = Math.max(maxMid, r.charges);
+            } else {
+                minHigh = Math.min(minHigh, r.charges);
+                maxHigh = Math.max(maxHigh, r.charges);
+            }
+        }
+
+        double rangeLow = (minLow == Double.POSITIVE_INFINITY) ? 0 : (maxLow - minLow);
+        double rangeMid = (minMid == Double.POSITIVE_INFINITY) ? 0 : (maxMid - minMid);
+        double rangeHigh = (minHigh == Double.POSITIVE_INFINITY) ? 0 : (maxHigh - minHigh);
+
+        System.out.printf("BMI < 30   : Range of charges = %.2f%n", rangeLow);
+        System.out.printf("BMI 30-45  : Range of charges = %.2f%n", rangeMid);
+        System.out.printf("BMI > 45   : Range of charges = %.2f%n", rangeHigh);
+
+        if (rangeMid > rangeLow && rangeMid > rangeHigh)
+            System.out.println("\n YES, BMI 30–45 has the greatest range of charges.");
+        else
+            System.out.println("\n NO, BMI 30–45 does NOT have the greatest range of charges.");
+
+    
 
     
     }
