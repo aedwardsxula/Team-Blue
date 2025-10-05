@@ -290,17 +290,20 @@ public class Main {
             System.out.println("\nSouthern residents do NOT have a higher average BMI than Northern residents.");
         }
 
-        List <Double> bmiArray = new ArrayList<>();
-        List <Double> chargesArray = new ArrayList<>();
+        List<Double> bmiArray = new ArrayList<>();
+        List<Double> chargesArray = new ArrayList<>();
         for (InsuranceRecord r : records) {
             bmiArray.add(r.bmi);
             chargesArray.add(r.charges);
         }
-        LinearRegression lr = new LinearRegression(chargesArray, bmiArray);
-        Double lrCorrelation = LinearRegression.getCorrelation();
+        // convert Lists to primitive double[] for existing LinearRegression constructor
+        double[] bmiArr = bmiArray.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] chargesArr = chargesArray.stream().mapToDouble(Double::doubleValue).toArray();
+        LinearRegression lr = new LinearRegression(chargesArr, bmiArr);
+        Double lrCorrelation = lr.getCorrelation();
 
         System.out.println();
-        System.out.printf("Correlation between BMI and Charges:", bmichargescorrelation);
+        System.out.printf("Correlation between BMI and Charges: %6.4f%n", lrCorrelation);
 
 
 
