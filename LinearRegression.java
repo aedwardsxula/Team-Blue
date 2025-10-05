@@ -37,5 +37,10 @@ public class LinearRegression {
     public double getSlope() {
         return slope;
     }
+    public double getIntercept() {
+        return intercept;
+    }
+
+    
 
 }
