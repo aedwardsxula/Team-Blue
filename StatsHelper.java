@@ -7,6 +7,11 @@ public class StatsHelper {
                 return sum / list.size();
             }
 
-    
+    double std(List<? extends Number> list) {
+                double mean = mean(list);
+                double sumSq = 0;
+                for (Number n : list) sumSq += Math.pow(n.doubleValue() - mean, 2);
+                return Math.sqrt(sumSq / list.size());
+            }
 
 }
