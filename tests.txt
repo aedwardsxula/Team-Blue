@@ -11,6 +11,12 @@
 // 40-45: ** (2)
 // 45-50:  (0)
 
+//Test for #13
+// Arrange: Create dataset with smoker BMIs [22, 25, 27] and no non-smoker records.
+// Act: Calculate average BMI for smokers and attempt to calculate for non-smokers.
+// Assert: Verify smoker avg BMI is computed; non-smoker avg BMI is undefined or returns 0; 
+// confirm code handles empty set safely.
+
 //Test for #14
 //Arrange: Create an empty dataset with no smoker records.
 // Act: Generate the smoker age histogram.
