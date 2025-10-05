@@ -261,7 +261,15 @@ public class Main {
         }
         double avgSmokers20andYounger = stats.mean(smokers20andYounger);
         double avgSmokers50andOlder = stats.mean(smokers50andOlder);
-        
+
+        if (avgSmokers20andYounger > avgSmokers50andOlder {
+            System.out.println();
+            System.out.printf("\n The average age that young people smoker more than old people is: ", avgSmokers20andYounger);
+        } else {
+            System.out.println();
+            System.out.prinf("\n There is no average age where young people smoke more than old people.");
+        }
+
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
