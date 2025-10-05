@@ -269,6 +269,8 @@ public class Main {
             System.out.println();
             System.out.println("\n There is no average age where young people smoke more than old people.");
         }
+        List<Integer> southernBMI = new ArrayList<>();
+        List<Integer> northernBMI = new ArrayList<>();
 
         System.out.println();//spacing 
 
