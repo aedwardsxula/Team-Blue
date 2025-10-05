@@ -122,6 +122,8 @@ Assert: The output should look similar to this(similar in terms of text not bool
 Smokers have higher charges and wider range of charges than non-smokers: False
 
 Test3: If the smokers in the dataset have same charges and range of charges
-Arrange:
+Arrange:Use the yes/no portion in the given csv to determine if a client is a smoker
+or not and from those two catergories find the highest charge and the range. The highest charges
+and the range will be used as variables to compare 
 Act:
 Assert: 
