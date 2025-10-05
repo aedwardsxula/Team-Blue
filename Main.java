@@ -151,6 +151,7 @@ public class Main {
             smokerList.add(r.smoker);
         }
 
+
         for (String status : smokerList) { // smokerList = ["yes", "no", "yes", ...]
             if (status.equalsIgnoreCase("yes")) {
             smokerCount++;
@@ -180,6 +181,8 @@ public class Main {
                 chargeForUnder20.add(r.charges);
             }
         }
+        double avgChargeOver50 = stats.mean(chargeForOver50);
+        double avgChargeUnder20 = stats.mean(chargeForUnder20);
         System.out.printf("\n People 50 or older average twice the charges as the average of people 20 and younger: ", chargeForAge);
         
           System.out.println("\nNumber of Records by Children:");
