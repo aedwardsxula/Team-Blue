@@ -281,6 +281,8 @@ public class Main {
         }
         double avgSouthernBMI = stats.mean(southernBMI);
         double avgNorthernBMI = stats.mean(northernBMI);
+        System.out.printf("\nAverage Southern BMI:", avgSouthernBMI);
+        System.out.printf("\nAverage Northern BMI:", avgNorthernBMI);
         if (avgSouthernBMI > avgNorthernBMI) {
             System.out.println();
             System.out.printf("\nSouthern residents have a higher average BMI than Northern residents at a average BMI of: ", avgSouthernBMI);
