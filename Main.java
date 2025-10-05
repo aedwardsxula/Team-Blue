@@ -129,9 +129,13 @@ public class Main {
         }
         for (Map.Entry<Double, Integer> entry : bmiFreq.entrySet()){
             double bmi = entry.getKey();
-            int freq = entry.getValue();
-            System.out.printf("%3d | %s (%d)%n", bmi, "*".repeat(freq), freq);
-         }
+            int bmifreq = entry.getValue();
+            for (int i = 0; i < bmifreq; i++) {
+                System.out.println("  *"); // each star on its own line
+            }
+        System.out.printf("%6.2f | (%d)%n", bmi, bmifreq);
+        }
+
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
