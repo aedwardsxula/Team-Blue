@@ -184,6 +184,8 @@ northeast, southwest
 southeast
 
 Test2: If averages for each region is different
-Arrange: 
+Arrange: Establish the four regions and find the average charges
+for each region. This should result in four comparable variables
+that can be put in descending order. 
 Act:
 Assert: 
