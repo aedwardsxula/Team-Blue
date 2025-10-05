@@ -284,3 +284,8 @@ The x,y pairs are:
 (5, 1)
 (9, 7)
 
+Test2: There are no children
+Arrange:
+Act:
+Assert:
+
