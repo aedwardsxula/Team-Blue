@@ -32,3 +32,8 @@
     
 18. Arrange: Prepare a dataset that includes region and BMI for each person and Define the regions.
     Act: Make sure the code Divides records into “southern” and “northern” groups based on region, Calculates the average BMI for each group, Compares the averages to check whether Southerners have a higher average BMI, and Returns both averages and whether the hypothesis is true
+    Assert: Verify that BMI averages for both regions are computed correctly, The southern average is higher than the northern average, The result (true/false) matches the expected outcome, and The reported “average BMI where this is true” is approximately 32.1 for Southerners in this dataset.
+
+20. Arrange: Prepare a sample dataset of BMI and corresponding charges values (simplified for testing).
+    Act: Make sure the code Calculates the linear regression between charges (y) and BMI (x), Computes and outputs the Pearson correlation coefficient (r), Generates the regression equation (y = a + b·x), and Applies the regression model to 11 new BMI values, producing 11 predicted charge values
+    Assert: Verify that The computed r value matches the expected high positive correlation (close to 1.0), The regression coefficients a (intercept) and b (slope) are numerically reasonable (positive slope), Each new x value produces a predicted y value according to the formula y = a + b·x, and There are exactly 11 pairs of output values (x, predicted y)
