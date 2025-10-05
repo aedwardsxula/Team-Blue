@@ -235,6 +235,9 @@ public class Main {
             System.out.println();
             System.out.println("\nSouthern smokers are NOT charged at least 25% more than other smokers.");
         }
+        System.out.println();
+        System.out.println("\nHistogram of Age Distribution for Smokers:");
+        
 
         System.out.println();//spacing 
 
