@@ -248,6 +248,10 @@ public class Main {
             int smokerAgefreq = entry.getValue();
             System.out.printf("%3d | %s (%d)%n", age, "*".repeat(smokerAgefreq), smokerAgefreq);
           }
+        
+        List<Integer> smokers20andYounger = new ArrayList<>();
+        List<Integer> smokers50andOlder = new ArrayList<>();
+        
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
@@ -260,6 +264,7 @@ public class Main {
                 int freq = entry.getValue();
                 System.out.printf("%3d | %s (%d)%n", children, "*".repeat(freq), freq);
             }
+    
 
 
 
