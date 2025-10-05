@@ -30,5 +30,8 @@ public class LinearRegression {
         slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
         intercept = (sumY - slope * sumX) / n;
     }
+    public double predict(double newX) {
+        return slope * newX + intercept;
+    }
 
 }
