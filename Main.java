@@ -135,7 +135,7 @@ public class Main {
             }
         System.out.printf("%6.2f | (%d)%n", bmi, bmifreq);
         }
-
+        System.out.println("\nHistogram of Smokers vs Non-Smokers (Vertical):");
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
