@@ -174,6 +174,29 @@ Act: Generate a true or false boolean that answers if the avg bmis
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 Smokers have a lower average bmi than non-smokers: True
 
+Problem 15: Sorting charges in descenging order (averages)
+Test1: If two regions(or more) have the same average
+Arrange: Establish the four regions and find the average charges
+for each region. This should result in four comparable variables
+that can be put in descending order. 
+Act: Generate a list of descending order regions based on their avg charge
+Assert: The ouput should look like this if the avg per region was 
+southeast: 1 , southwest: 2.5, northeast: 2.5, northwest: 3
+northwest
+northeast, southwest
+southeast
+
+Test2: If averages for each region is different
+Arrange: Establish the four regions and find the average charges
+for each region. This should result in four comparable variables
+that can be put in descending order. 
+Act: Generate a list of descending order regions based on their avg charge
+Assert: The ouput should look like this if the avg per region was 
+southeast: 1 , southwest: 2.5, northeast: 3, northwest: 4
+northwest
+northeast
+southwest
+southeast
 
 
 
