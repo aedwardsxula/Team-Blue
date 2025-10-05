@@ -87,7 +87,10 @@ Assert: The output should look similar to this:
 The range of charges for bmi in 30-45 are greater than the other two ranges: False
 
 Test2: If range for charge is the greater as the other two ranges
-Arrange: 
+Arrange: Identify the highest and lowest charges for the bmi in 30-45 and 
+establish the other two ranges (by user input or with intervals of 15 with 
+given data) and find those values for each interval as well. Utilize these 
+values as variables to compare (use absolute value whenn finding range values)
 Act: 
 Assert: 
 
