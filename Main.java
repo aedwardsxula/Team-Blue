@@ -122,6 +122,7 @@ public class Main {
             int freq = entry.getValue();
             System.out.printf("%3d | %s (%d)%n", age, "*".repeat(freq), freq);
          }
+         System.out.println("\nHistogram of BMI (Vertical):");
 
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
