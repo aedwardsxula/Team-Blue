@@ -188,7 +188,34 @@ public class Main {
             System.out.printf("\nPeople 50 or older do NOT average twice the charges as the average of people 20 and younger");
         } else {
         System.out.printf("\nPeople 50 or older average twice the charges as the average of people 20 and younger");
-        
+        }
+
+        List<Double> childrenCharges1 = new ArrayList<>();
+        List<Double> childrenChargesOver1 = new ArrayList<>();
+
+        for (InsuranceRecord r : records) {
+            if (r.children == 1) {
+                childrenCharges1.add(r.charges);
+            }
+        }
+        for (InsuranceRecord r : records) {
+            if (r.children > 1) {
+                childrenChargesOver1.add(r.charges);
+            }
+        }
+        double avgChildrenCharges1 = stats.mean(childrenCharges1);
+        double avgChildrenChargesOver1 = stats.mean(childrenChargesOver1);
+
+        if (avgChildrenChargesOver1 < avgChildrenCharges1) {
+            System.out.println();
+            System.out.printf("\nPeople with more than 1 child do average a lower charges per child than those with exactly 1 child");
+        } else {
+        System.out.println();
+        System.out.printf("\nPeople with more than 1 child do NOT average a lower charges per child than those with exactly 1 child");
+        }
+
+        System.out.println();//spacing 
+
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
@@ -480,5 +507,4 @@ public class Main {
         }
 
     }
-}
 }
