@@ -94,6 +94,38 @@ public class Main {
             }
 
 
+         System.out.println("\nRegion Distribution & Fairness (≤ 5 percentage points spread):");
+        int total = records.size();
+        if (total == 0) {
+            System.out.println("No records loaded; cannot evaluate fairness.");
+            return;
+        }
+
+        // Count by region (case-insensitive sort for neat output)
+        Map<String, Integer> regionCounts = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        for (InsuranceRecord r : records) {
+            regionCounts.put(r.region, regionCounts.getOrDefault(r.region, 0) + 1);
+        }
+
+        double minPct = Double.POSITIVE_INFINITY;
+        double maxPct = Double.NEGATIVE_INFINITY;
+
+        for (Map.Entry<String, Integer> e : regionCounts.entrySet()) {
+            String region = e.getKey();
+            int cnt = e.getValue();
+            double pct = (100.0 * cnt) / total;
+            minPct = Math.min(minPct, pct);
+            maxPct = Math.max(maxPct, pct);
+            System.out.printf("  %-12s : %4d (%.2f%%)%n", region, cnt, pct);
+        }
+
+        double spread = maxPct - minPct;
+        boolean isFair = spread <= 5.0;
+
+        System.out.printf("%nSpread between largest and smallest region shares: %.2f percentage points%n", spread);
+        System.out.println("Is the data fair? " + (isFair ? "YES" : "NO"));
+
+
 
     
     }

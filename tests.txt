@@ -9,3 +9,8 @@
 6. Arrange: Create a small dataset of records with a smoker field (values "yes" or "no").
    Act: Run the function that generates the vertical histogram of smokers vs. non-smokers. Capture the output string
    Assert: Verify that the “Smokers” column has exactly 2 markers,verify that the “Non-Smokers” column has exactly 2 markers,verify that the histogram is vertical, and verify that the labels "Smokers" and "Non-Smokers" appear under their respective columns.
+
+8. Arrange: Prepare a small sample dataset of records. Each record should include age and charges
+   Act: Make sure the code Separates people into two groups, Calculates the average, Checks whether the older group’s average is at least twice the younger group’s average.
+   Assert: Verify that The averages were computed correctly, The comparison logic, The function returns the expected boolean value
+   
