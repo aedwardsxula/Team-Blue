@@ -227,6 +227,33 @@ Assert: If the amount of southern smokers were 5 and northern 3, and the average
 25 and 30 respectively, the output should look like this
 The average age where southereners smoke more than northerners is: 25
 
+Problem 19: Number of Children, Southerners vs northerners
+Test1: If southerners have less children than northerners
+Arrange: Determine how many children southerners and northerners. Then
+determine the average age of northerners and southerners.  
+Act: Generate the avg amount of children of southerners and northerners and the avg age
+of southerners, in the event that there are more southerners with children print that age
+Assert: The output should look like this:
+Southerners don't have on average more children than northerners. 
+
+Test2: If southerners have the same amount of children as northerners
+Arrange: Determine how many children southerners and northerners. Then
+determine the average age of northerners and southerners.  
+Act: Generate the avg amount of children of southerners and northerners and the avg age
+of southerners, in the event that there are more southerners with children print that age
+Assert: The output should look like this:
+Southerners don't have on average more children than northerners. 
+
+Test3: If southerners have more childrean than northerners
+Arrange: Determine how many children southerners and northerners. Then
+determine the average age of northerners and southerners.  
+Act: Generate the avg amount of children of southerners and northerners and the avg age
+of southerners, in the event that there are more southerners with children print that age
+Assert: The output should look like this (If average southerner age was 22):
+Southerners average more children than northerners at, on average, age: 22
+
+
+
 
 
 
