@@ -189,6 +189,13 @@ public class Main {
         } else {
         System.out.printf("\nPeople 50 or older average twice the charges as the average of people 20 and younger");
         }
+
+        List<Integer> childrenCharges = new ArrayList<>();
+        for (InsuranceRecord r : records) {
+            if (r.children >= 1) {
+                chargeForUnder20.add(r.charges);
+            }
+        }
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
