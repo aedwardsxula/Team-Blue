@@ -153,3 +153,8 @@ Act: Generate a true or false boolean that answers if the avg bmis
 for smokers is lower than non smokers 
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 Smokers have a lower average bmi than non-smokers: False
+
+Test2: If BMI avg of smokers is the higher than non-smokers
+Arrange: 
+Act: 
+Assert: 
