@@ -68,5 +68,13 @@ Act: Generate a true or false boolean that answers if the data is fair
 Assert: The output should look similar to this:
 The data is fair: False
 
+Test2: If data differs at exactly 5%
+Arrange: 
+Act: 
+Assert: 
+
+
+
+
 
 
