@@ -11,6 +11,12 @@
 // 40-45: ** (2)
 // 45-50:  (0)
 
+//Test for #12
+// Arrange: Create dataset where southern smokers avg charge = 11000, other smokers avg charge = 10000.
+// Act: Compute average charges for southern and non-southern smokers.
+// Assert: Verify (south_avg / other_avg) < 1.25 → hypothesis is false.
+
+
 //Test for #13
 // Arrange: Create dataset with smoker BMIs [22, 25, 27] and no non-smoker records.
 // Act: Calculate average BMI for smokers and attempt to calculate for non-smokers.
