@@ -196,6 +196,32 @@ public class Main {
         else
             System.out.println("\n Hypothesis not fully confirmed.");
 
+        System.out.println("\nSmoker vs Non-Smoker BMI Comparison:");
+
+        double sumBmiSmoker = 0, sumBmiNon = 0;
+        int countBmiSmoker = 0, countBmiNon = 0;
+
+        for (InsuranceRecord r : records) {
+            if (r.smoker.equals("yes")) {
+                sumBmiSmoker += r.bmi;
+                countBmiSmoker++;
+            } else {
+                sumBmiNon += r.bmi;
+                countBmiNon++;
+            }
+        }
+
+        double avgBmiSmoker = (countBmiSmoker == 0) ? 0 : sumBmiSmoker / countBmiSmoker;
+        double avgBmiNon = (countBmiNon == 0) ? 0 : sumBmiNon / countBmiNon;
+
+        System.out.printf("Smokers     -> Count: %d | Avg BMI: %.2f%n", countBmiSmoker, avgBmiSmoker);
+        System.out.printf("Non-Smokers -> Count: %d | Avg BMI: %.2f%n", countBmiNon, avgBmiNon);
+
+        if (avgBmiSmoker < avgBmiNon)
+            System.out.println("\n Yes, smokers have a lower average BMI.");
+        else
+            System.out.println("\n No, smokers do not have a lower average BMI.");
+
     
     }
 }
