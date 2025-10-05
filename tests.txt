@@ -204,3 +204,8 @@ Act: Generate an average age of smokers, in the event that southerners smoke mor
 northerners
 Assert: If there are no southern smokers the output should look like this: 
 There is no average age where southereners smoke more than northerners 
+
+Test2: If southerners smoke less than northerners
+Arrange:
+Act: 
+Assert: 
