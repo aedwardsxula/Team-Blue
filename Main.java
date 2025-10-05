@@ -259,6 +259,9 @@ public class Main {
                 smokers50andOlder.add(r.age);
             }
         }
+        double avgSmokers20andYounger = stats.mean(smokers20andYounger);
+        double avgSmokers50andOlder = stats.mean(smokers50andOlder);
+        
         System.out.println();//spacing 
 
           System.out.println("\nNumber of Records by Children:");
