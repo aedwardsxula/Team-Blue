@@ -81,7 +81,7 @@ Test1: If range for charge is the same as the other two ranges
 Arrange: Identify the highest and lowest charges for the bmi in 30-45 and 
 establish the other two ranges (by user input or with intervals of 15 with 
 given data) and find those values for each interval as well. Utilize these 
-values as variables to compare 
+values as variables to compare (use absolute value whenn finding range values)
 Act: Generate a true or false boolean that answers if the range is greater
 Assert:
 
