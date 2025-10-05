@@ -22,6 +22,12 @@
 // Act: Calculate average age for smokers and non-smokers.
 // Assert: Verify smoker average age < non-smoker average age.
 
+//Test for #18
+// Arrange: Create dataset where Southern BMI values average around 32 
+// and Northern BMI values average around 26.
+// Act: Calculate average BMI for each region.
+// Assert: Verify South avg BMI > North avg BMI and report the average BMI of Southerners.
+
 //Test for #19
 // Arrange: Create dataset where Southerners have more children (avg 3) 
 // than Northerners (avg 1), with recorded ages for each group.
