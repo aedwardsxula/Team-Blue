@@ -313,6 +313,19 @@ public class Main {
         System.out.println();
         lr2.printData();
 
+        List<Double> chargesArray2 = new ArrayList<>();
+        List<Double> regionArray = new ArrayList<>();
+        for (InsuranceRecord r : records) {
+            regionArray.add(r.region.equals("northeast") ? 1.0 : r.region.equals("northwest") ? 2.0 : r.region.equals("southeast") ? 3.0 : 4.0);
+            chargesArray2.add(r.charges);
+        }
+        // convert Lists to primitive double[] for existing LinearRegression constructor
+        double[] bmiArr = bmiArray.stream().mapToDouble(Double::doubleValue).toArray();
+        double[] chargesArr = chargesArray.stream().mapToDouble(Double::doubleValue).toArray();
+
+        System.out.println();
+        LinearRegression lr3 = new LinearRegression(fakevalues2, fakevalues1);
+
 
 
 
