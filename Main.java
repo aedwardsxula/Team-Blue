@@ -279,6 +279,8 @@ public class Main {
                 northernBMI.add(r.bmi); 
             }
         }
+        double avgSouthernBMI = stats.mean(southernBMI);
+        double avgNorthernBMI = stats.mean(northernBMI);
 
         System.out.println();//spacing 
 
