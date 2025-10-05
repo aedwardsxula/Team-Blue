@@ -198,7 +198,6 @@ The range of charges for bmi in 30-45 are greater than the other two ranges: Fal
 
 
 
-
 //Test for 3
 // Arrange: Ages = [18, 18, 40, 44], Start=15, Interval=5
 // Act: Run horizontal age histogram
