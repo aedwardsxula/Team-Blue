@@ -11,6 +11,11 @@
 // 40-45: ** (2)
 // 45-50:  (0)
 
+//Test for #14
+//Arrange: Create an empty dataset with no smoker records.
+// Act: Generate the smoker age histogram.
+// Assert: Verify output shows no bins or frequencies (empty distribution message displayed).
+
 //Test for #15
 // Arrange: Create dataset with 4 regions (north, south, east, west) 
 // and different average charges per region.
