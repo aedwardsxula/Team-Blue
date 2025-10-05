@@ -21,3 +21,14 @@
 // Arrange: Create dataset with smoker ages [19, 22, 25] and non-smoker ages [40, 45, 60].
 // Act: Calculate average age for smokers and non-smokers.
 // Assert: Verify smoker average age < non-smoker average age.
+
+// Test for #20
+// Arrange: BMI = [20,25,30,35,40], Charges = [2000,4000,6000,8000,10000].
+// Act: Compute regression (charges vs BMI) and Pearson r; predict 11 new BMI values.
+// Assert: r > 0.9 and predicted charges rise with increasing BMI.
+
+
+
+
+
+
