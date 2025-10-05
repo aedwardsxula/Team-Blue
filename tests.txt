@@ -100,7 +100,7 @@ Arrange: Identify the highest and lowest charges for the bmi in 30-45 and
 establish the other two ranges (by user input or with intervals of 15 with 
 given data) and find those values for each interval as well. Utilize these 
 values as variables to compare (use absolute value whenn finding range values)
-Act: 
+Act: Generate a true or false boolean that answers if the range is greater
 Assert: 
 
 
