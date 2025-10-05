@@ -123,10 +123,15 @@ public class Main {
             System.out.printf("%3d | %s (%d)%n", age, "*".repeat(freq), freq);
          }
         System.out.println("\nHistogram of BMI (Vertical):");
-        Map<Double, Double> bmiFreq = new TreeMap<>();
+        Map<Double, Integer> bmiFreq = new TreeMap<>();
         for (InsuranceRecord r : records) {
-            bmiFreq.put(r.bmi, bmiFreq.getOrDefault(r.bmi, (double) 0) + 1);
+            bmiFreq.put(r.bmi, bmiFreq.getOrDefault(r.bmi, 0) + 1);
         }
+        for (Map.Entry<Double, Integer> entry : bmiFreq.entrySet()){
+            double bmi = entry.getKey();
+            int freq = entry.getValue();
+            System.out.printf("%3d | %s (%d)%n", bmi, "*".repeat(freq), freq);
+         }
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
