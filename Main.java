@@ -69,6 +69,47 @@ public class Main {
         for (InsuranceRecord r : records) {
             System.out.println(r);
         }
+        //Put data into lists for stats
+        List<Integer> ages = new ArrayList<>();
+        List<Double> bmis = new ArrayList<>();
+        List<Integer> childrenList = new ArrayList<>();
+        List<Double> charges = new ArrayList<>();
+
+        for (InsuranceRecord r : records) {
+            ages.add(r.age);
+            bmis.add(r.bmi);
+            childrenList.add(r.children);
+            charges.add(r.charges);
+        }
+        StatsHelper stats = new StatsHelper();
+        Runnable displayStats = () -> {
+            System.out.println("\n===== Descriptive Statistics =====");
+
+            System.out.printf("%-10s %5s %10s %10s %10s %10s %10s %10s %10s%n",
+                "Variable", "Count", "Mean", "Std", "Min", "25%", "50%", "75%", "Max");
+
+            List<Map.Entry<String, List<? extends Number>>> data = new ArrayList<>();
+                data.add(new AbstractMap.SimpleEntry<>("Age", ages));
+                data.add(new AbstractMap.SimpleEntry<>("BMI", bmis));
+                data.add(new AbstractMap.SimpleEntry<>("Children", childrenList));
+                data.add(new AbstractMap.SimpleEntry<>("Charges", charges));
+
+            for (Map.Entry<String, List<? extends Number>> entry : data) {
+            String name = entry.getKey();
+            List<? extends Number> list = entry.getValue();
+            System.out.printf("%-10s %5d %10.2f %10.2f %10.2f %10.2f %10.2f %10.2f %10.2f%n",
+                name,
+                list.size(),
+                stats.mean(list),
+                stats.std(list),
+                stats.min(list),
+                stats.percentile(list, 0.25),
+                stats.percentile(list, 0.50),
+                stats.percentile(list, 0.75),
+                stats.max(list));
+        }
+        };
+        displayStats.run();
         System.out.println("\nHistogram of Ages:");
 
         Map<Integer, Integer> ageFreq = new TreeMap<>();
