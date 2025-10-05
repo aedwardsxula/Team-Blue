@@ -190,8 +190,8 @@ public class Main {
         System.out.printf("\nPeople 50 or older average twice the charges as the average of people 20 and younger");
         }
 
-        List<Integer> childrenCharges1 = new ArrayList<>();
-        List<Integer> childrenChargesOver1 = new ArrayList<>();
+        List<Double> childrenCharges1 = new ArrayList<>();
+        List<Double> childrenChargesOver1 = new ArrayList<>();
 
         for (InsuranceRecord r : records) {
             if (r.children == 1) {
