@@ -10,6 +10,7 @@
 6. Arrange: Create a small dataset of records with a smoker field (values "yes" or "no").
    Act: Run the function that generates the vertical histogram of smokers vs. non-smokers. Capture the output string
    Assert: Verify that the “Smokers” column has exactly 2 markers,verify that the “Non-Smokers” column has exactly 2 markers,verify that the histogram is vertical, and verify that the labels "Smokers" and "Non-Smokers" appear under their respective columns.
+
 Problem 1 Test:
 //Arrange
 
@@ -179,3 +180,12 @@ Assert:
 // Arrange: Create dataset with smoker ages [19, 22, 25] and non-smoker ages [40, 45, 60].
 // Act: Calculate average age for smokers and non-smokers.
 // Assert: Verify smoker average age < non-smoker average age.
+
+8. Arrange: Prepare a small sample dataset of records. Each record should include age and charges
+   Act: Make sure the code Separates people into two groups, Calculates the average, Checks whether the older group’s average is at least twice the younger group’s average.
+   Assert: Verify that The averages were computed correctly, The comparison logic, The function returns the expected boolean value
+
+10. Arrange: Create a small test dataset with each person’s number of children and their total insurance charges.
+    Act: Run the code that Groups records by the number of children, Calculates the average charge per child for each group, Checks if the average charge per child decreases as the number of children increases (True or False)
+    Assert: The per-child charge values were calculated correctly,The relationship between number of children and per-child charge is correctly analyzed,The function returns the expected result (true for this dataset)
+
