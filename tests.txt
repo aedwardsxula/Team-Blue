@@ -177,4 +177,8 @@ Arrange: Establish the four regions and find the average charges
 for each region. This should result in four comparable variables
 that can be put in descending order. 
 Act: Generate a list of descending order regions based on their avg charge
-Assert: 
+Assert: The ouput should look like this if the avg per region was 
+southeast: 1 , southwest: 2, northeast: 2, northwest: 3
+northwest
+northeast, southwest
+southeast
