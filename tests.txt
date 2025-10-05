@@ -319,7 +319,8 @@ The x,y pairs are:
 (9, 7)
 
 Test3: Linear Regression has no correlation: 
-Arrange: 
+Arrange: Arrange: Determine the number of children and the charges of clients and make this into
+comparable variables to perform the pearson correlation coefficient operation 
 Act:
 Assert:
 
