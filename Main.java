@@ -324,7 +324,7 @@ public class Main {
         double[] chargesArr2 = chargesArray2.stream().mapToDouble(Double::doubleValue).toArray();
 
         System.out.println();
-        LinearRegression lr3 = new LinearRegression(regionArr, chargesArr2);
+        LinearRegression lr3 = new LinearRegression(chargesArr2, regionArr);
         Double lrCorrelation2 = lr3.getCorrelation();
         System.out.printf("Correlation between Region and Charges: %6.4f%n", lrCorrelation2);
 
