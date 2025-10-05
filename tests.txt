@@ -318,3 +318,8 @@ The x,y pairs are:
 (5, 1)
 (9, 7)
 
+Test3: Linear Regression has no correlation: 
+Arrange: 
+Act:
+Assert:
+
