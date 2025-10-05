@@ -198,7 +198,14 @@ public class Main {
                 childrenCharges1.add(r.charges);
             }
         }
-        double avgChildrenCharges = stats.mean(childrenCharges);
+        for (InsuranceRecord r : records) {
+            if (r.children > 1) {
+                childrenChargesOver1.add(r.charges);
+            }
+        }
+        double avgChildrenCharges1 = stats.mean(childrenCharges1);
+        double avgChildrenChargesOver1 = stats.mean(childrenChargesOver1);
+
           System.out.println("\nNumber of Records by Children:");
           Map<Integer, Integer> childrenFreq = new TreeMap<>();
           for (InsuranceRecord r : records){
