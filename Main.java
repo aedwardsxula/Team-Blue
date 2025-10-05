@@ -328,5 +328,90 @@ public class Main {
         }
 
     
+        System.out.println("\nSouthern vs Northern Children Analysis:");
+
+        int southChildTotal = 0, northChildTotal = 0;
+        int southChildrenSum = 0, northChildrenSum = 0;
+        double southAgeSumForChildren = 0, northAgeSumForChildren = 0;
+
+        for (InsuranceRecord r : records) {
+            String regionLower = r.region.toLowerCase();
+            if (regionLower.contains("south")) {
+                southChildTotal++;
+                southChildrenSum += r.children;
+                southAgeSumForChildren += r.age;
+            } else if (regionLower.contains("north")) {
+                northChildTotal++;
+                northChildrenSum += r.children;
+                northAgeSumForChildren += r.age;
+            }
+        }
+
+        double southAvgChildren = (southChildTotal == 0) ? 0 : (1.0 * southChildrenSum / southChildTotal);
+        double northAvgChildren = (northChildTotal == 0) ? 0 : (1.0 * northChildrenSum / northChildTotal);
+
+        double southAvgAgeForChildren = (southChildTotal == 0) ? 0 : (southAgeSumForChildren / southChildTotal);
+        double northAvgAgeForChildren = (northChildTotal == 0) ? 0 : (northAgeSumForChildren / northChildTotal);
+
+        System.out.printf("Southerners -> Total: %d | Avg children: %.2f | Avg age: %.2f%n",
+                southChildTotal, southAvgChildren, southAvgAgeForChildren);
+        System.out.printf("Northerners -> Total: %d | Avg children: %.2f | Avg age: %.2f%n",
+                northChildTotal, northAvgChildren, northAvgAgeForChildren);
+
+        if (southAvgChildren > northAvgChildren) {
+            System.out.printf("%nYES, Southerners have more children on average than Northerners.%n");
+            System.out.printf("Average age of Southerners when this is true: %.2f years%n", southAvgAgeForChildren);
+        } else {
+            System.out.printf("%nNO, Southerners do not have more children on average.%n");
+            System.out.printf("Average age of Northerners when this is true: %.2f years%n", northAvgAgeForChildren);
+        }
+
+
+        System.out.println("\nSimple Linear Regression: Charges vs. Number of Children");
+
+        int n = records.size();
+        if (n == 0) {
+            System.out.println("No data loaded; cannot perform regression.");
+            return;
+        }
+
+        double sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
+        for (InsuranceRecord r : records) {
+            double x = r.children;
+            double y = r.charges;
+            sumX += x;
+            sumY += y;
+            sumXY += x * y;
+            sumX2 += x * x;
+            sumY2 += y * y;
+        }
+
+         double meanX = sumX / n;
+        double meanY = sumY / n;
+
+       
+        double numerator = sumXY - (sumX * sumY / n);
+        double denominator = sumX2 - (sumX * sumX / n);
+        double b1 = (denominator == 0) ? 0 : numerator / denominator;
+        double b0 = meanY - b1 * meanX;
+
+       
+        double rNumerator = n * sumXY - (sumX * sumY);
+        double rDenominator = Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
+        double r = (rDenominator == 0) ? 0 : rNumerator / rDenominator;
+
+        
+        System.out.printf("Regression line: charges = %.4f + %.4f * children%n", b0, b1);
+        System.out.printf("Pearson correlation coefficient (r): %.4f%n", r);
+
+       
+        System.out.println("\nPredicted charges for 22 new x values (children count):");
+        Random rand = new Random();
+        for (int i = 1; i <= 22; i++) {
+            int xNew = rand.nextInt(6); // random number of children between 0 and 5
+            double yPred = b0 + b1 * xNew;
+            System.out.printf("Case %2d: children = %d -> predicted charges = %.2f%n", i, xNew, yPred);
+        }
+
     }
 }

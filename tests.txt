@@ -129,6 +129,7 @@ Act: Generate a true or false boolean that answers if the charges and range is h
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 Smokers have higher charges and wider range of charges than non-smokers: False
 
+
 Test3: If the smokers in the dataset have same charges and range of charges as nonsmokers
 Arrange:Use the yes/no portion in the given csv to determine if a client is a smoker
 or not and from those two catergories find the highest charge and the range. The highest charges
@@ -144,6 +145,7 @@ and the range will be used as variables to compare
 Act: Generate a true or false boolean that answers if the charges and range is higher for smokers
 Assert: The output should look similar to this(similar in terms of text not boolen output):
 Smokers have higher charges and wider range of charges than non-smokers: True
+
 
 Problem 13: Avg BMI, smokers vs non smokers
 Test1: If BMI avg of smokers is the same as non-smokers
@@ -386,3 +388,186 @@ The x,y pairs are:
 (2, 5)
 (5, 1)
 (9, 7)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Test for 3
+// Arrange: Ages = [18, 18, 40, 44], Start=15, Interval=5
+// Act: Run horizontal age histogram
+// Assert: Output should show
+// 15-20: ** (2)
+// 20-25:  (0)
+// 25-30:  (0)
+// 30-35:  (0)
+// 35-40:  (0)
+// 40-45: ** (2)
+// 45-50:  (0)
+
+//Test for #12
+// Arrange: Create dataset where southern smokers avg charge = 11000, other smokers avg charge = 10000.
+// Act: Compute average charges for southern and non-southern smokers.
+// Assert: Verify (south_avg / other_avg) < 1.25 → hypothesis is false.
+
+
+//Test for #13
+// Arrange: Create dataset with smoker BMIs [22, 25, 27] and no non-smoker records.
+// Act: Calculate average BMI for smokers and attempt to calculate for non-smokers.
+// Assert: Verify smoker avg BMI is computed; non-smoker avg BMI is undefined or returns 0; 
+// confirm code handles empty set safely.
+
+//Test for #14
+//Arrange: Create an empty dataset with no smoker records.
+// Act: Generate the smoker age histogram.
+// Assert: Verify output shows no bins or frequencies (empty distribution message displayed).
+
+//Test for #15
+// Arrange: Create dataset with 4 regions (north, south, east, west) 
+// and different average charges per region.
+// Act: Calculate average charge per region and sort them in descending order.
+// Assert: Verify that regions are sorted from highest to lowest average charges.
+
+//Test for #16
+// Arrange: Create dataset with smoker ages [19, 22, 25] and non-smoker ages [40, 45, 60].
+// Act: Calculate average age for smokers and non-smokers.
+// Assert: Verify smoker average age < non-smoker average age.
+
+//Test for #17
+// Arrange: Create dataset where more Southerners are smokers than Northerners, 
+// including their ages.
+// Act: Calculate smoking rate by region and find average age of Southern smokers.
+// Assert: Verify South smoker rate > North smoker rate and report the average age of Southern smokers.
+
+//Test for #18
+// Arrange: Create dataset where Southern BMI values average around 32 
+// and Northern BMI values average around 26.
+// Act: Calculate average BMI for each region.
+// Assert: Verify South avg BMI > North avg BMI and report the average BMI of Southerners.
+
+//Test for #19
+// Arrange: Create dataset where Southerners have more children (avg 3) 
+// than Northerners (avg 1), with recorded ages for each group.
+// Act: Calculate average number of children by region and find average age 
+// of Southern clients where this holds true.
+// Assert: Verify South avg children > North avg children, and output the average age of Southerners.
+
+// Test for #20
+// Arrange: BMI = [20,25,30,35,40], Charges = [2000,4000,6000,8000,10000].
+// Act: Compute regression (charges vs BMI) and Pearson r; predict 11 new BMI values.
+// Assert: r > 0.9 and predicted charges rise with increasing BMI.
+
+
+
+8. Arrange: Prepare a small sample dataset of records. Each record should include age and charges
+   Act: Make sure the code Separates people into two groups, Calculates the average, Checks whether the older group’s average is at least twice the younger group’s average.
+   Assert: Verify that The averages were computed correctly, The comparison logic, The function returns the expected boolean value
+
+10. Arrange: Create a small test dataset with each person’s number of children and their total insurance charges.
+    Act: Run the code that Groups records by the number of children, Calculates the average charge per child for each group, Checks if the average charge per child decreases as the number of children increases (True or False)
+    Assert: The per-child charge values were calculated correctly,The relationship between number of children and per-child charge is correctly analyzed,The function returns the expected result (true for this dataset)
+
+12 Arrange: Prepare a small dataset of smokers only, each with region and charges.
+   Acts: Make sure the function Filters to smokers, Splits them into South, Computes the average, and Checks whether.
+   Assert: Verify the computed averages match the manual values (within a small tolerance), Verify the comparison logic is correct, and Verify the final boolean result is TRUE for this dataset. 
+
+14 Arrange: Prepare a small dataset of people, each record containing at least age and smoker.
+   Act: Make sure the code Filters the dataset to include only smokers, Groups the remaining records by age range, Counts how many smokers fall into each age bin, and Produces a text-based histogram (horizontal or vertical)
+   Assert: Verify that Only smokers were counted, Each age range correctly reflects the number of smokers, The histogram text (using # or *) matches the expected bin counts
+
+16. Arrange: Create a small dataset with each person’s age and smoker status.
+    Act: Make sure the code Separates smokers and non-smokers into two groups, Computes the average age for each group, Compares the two averages to determine whether smokers are generally younger, Returns the average smoker age and a boolean (true if smokers are younger)
+    Asseert: Verify that The average age of smokers is correctly calculated, The average age of non-smokers is correctly calculated, The function correctly determines that smokers are, on average, younger, and The reported “average age where this is true” equals approximately 24.7 years for this dataset.
+    
+18. Arrange: Prepare a dataset that includes region and BMI for each person and Define the regions.
+    Act: Make sure the code Divides records into “southern” and “northern” groups based on region, Calculates the average BMI for each group, Compares the averages to check whether Southerners have a higher average BMI, and Returns both averages and whether the hypothesis is true
+    Assert: Verify that BMI averages for both regions are computed correctly, The southern average is higher than the northern average, The result (true/false) matches the expected outcome, and The reported “average BMI where this is true” is approximately 32.1 for Southerners in this dataset.
+
+20. Arrange: Prepare a sample dataset of BMI and corresponding charges values (simplified for testing).
+    Act: Make sure the code Calculates the linear regression between charges (y) and BMI (x), Computes and outputs the Pearson correlation coefficient (r), Generates the regression equation (y = a + b·x), and Applies the regression model to 11 new BMI values, producing 11 predicted charge values
+    Assert: Verify that The computed r value matches the expected high positive correlation (close to 1.0), The regression coefficients a (intercept) and b (slope) are numerically reasonable (positive slope), Each new x value produces a predicted y value according to the formula y = a + b·x, and There are exactly 11 pairs of output values (x, predicted y)
+
+22. Arrange: Prepare a dataset that includes each person’s region (categorical) and charges (numeric).
+    Act:  Make sure the code Encodes region strings into numbers, Computes linear regression of charges versus encoded region,Outputs the regression formula, Calculates and prints the Pearson correlation coefficient (r),Applies the regression equation to 33 new x values (region codes 1–4, reused multiple times or as synthetic examples) to generate predicted charges (y).
+    Assert: Verify that The encoding and regression setup are correct (region converted properly to numeric), The computed r matches expected direction (positive correlation), The regression formula behaves logically, Exactly 33 predicted (x, y) pairs are produced, and Predicted y values follow the trend defined by the slope b.
+
