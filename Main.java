@@ -38,7 +38,7 @@ class InsuranceRecord {
 public class Main {
     public static void main(String[] args) {
         String filePath = "insurance.csv"; // path to dataset
-        int N = 5; // how many records to store
+        int N = 10; // how many records to store
         List<InsuranceRecord> records = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -69,5 +69,308 @@ public class Main {
         for (InsuranceRecord r : records) {
             System.out.println(r);
         }
+        System.out.println("\nHistogram of Ages:");
+
+        Map<Integer, Integer> ageFreq = new TreeMap<>();
+        for (InsuranceRecord r : records) {
+            ageFreq.put(r.age, ageFreq.getOrDefault(r.age, 0) + 1);
+        }
+
+         for (Map.Entry<Integer, Integer> entry : ageFreq.entrySet()){
+            int age = entry.getKey();
+            int freq = entry.getValue();
+            System.out.printf("%3d | %s (%d)%n", age, "*".repeat(freq), freq);
+         }
+
+          System.out.println("\nNumber of Records by Children:");
+          Map<Integer, Integer> childrenFreq = new TreeMap<>();
+          for (InsuranceRecord r : records){
+            childrenFreq.put(r.children, childrenFreq.getOrDefault(r.children, 0) + 1);
+          }
+            for (Map.Entry<Integer, Integer> entry : childrenFreq.entrySet()){
+                int children = entry.getKey();
+                int freq = entry.getValue();
+                System.out.printf("%3d | %s (%d)%n", children, "*".repeat(freq), freq);
+            }
+
+
+         System.out.println("\nRegion Distribution & Fairness (≤ 5 percentage points spread):");
+        int total = records.size();
+        if (total == 0) {
+            System.out.println("No records loaded; cannot evaluate fairness.");
+            return;
+        }
+
+        // Count by region (case-insensitive sort for neat output)
+        Map<String, Integer> regionCounts = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        for (InsuranceRecord r : records) {
+            regionCounts.put(r.region, regionCounts.getOrDefault(r.region, 0) + 1);
+        }
+
+        double minPct = Double.POSITIVE_INFINITY;
+        double maxPct = Double.NEGATIVE_INFINITY;
+
+        for (Map.Entry<String, Integer> e : regionCounts.entrySet()) {
+            String region = e.getKey();
+            int cnt = e.getValue();
+            double pct = (100.0 * cnt) / total;
+            minPct = Math.min(minPct, pct);
+            maxPct = Math.max(maxPct, pct);
+            System.out.printf("  %-12s : %4d (%.2f%%)%n", region, cnt, pct);
+        }
+
+        double spread = maxPct - minPct;
+        boolean isFair = spread <= 5.0;
+
+        System.out.printf("%nSpread between largest and smallest region shares: %.2f percentage points%n", spread);
+        System.out.println("Is the data fair? " + (isFair ? "YES" : "NO"));
+
+
+        System.out.println("\nCharges Range Comparison by BMI Group:");
+        double minLow = Double.POSITIVE_INFINITY, maxLow = Double.NEGATIVE_INFINITY;
+        double minMid = Double.POSITIVE_INFINITY, maxMid = Double.NEGATIVE_INFINITY;
+        double minHigh = Double.POSITIVE_INFINITY, maxHigh = Double.NEGATIVE_INFINITY;
+
+        for (InsuranceRecord r : records) {
+            if (r.bmi < 30) {
+                minLow = Math.min(minLow, r.charges);
+                maxLow = Math.max(maxLow, r.charges);
+            } else if (r.bmi <= 45) {
+                minMid = Math.min(minMid, r.charges);
+                maxMid = Math.max(maxMid, r.charges);
+            } else {
+                minHigh = Math.min(minHigh, r.charges);
+                maxHigh = Math.max(maxHigh, r.charges);
+            }
+        }
+
+        double rangeLow = (minLow == Double.POSITIVE_INFINITY) ? 0 : (maxLow - minLow);
+        double rangeMid = (minMid == Double.POSITIVE_INFINITY) ? 0 : (maxMid - minMid);
+        double rangeHigh = (minHigh == Double.POSITIVE_INFINITY) ? 0 : (maxHigh - minHigh);
+
+        System.out.printf("BMI < 30   : Range of charges = %.2f%n", rangeLow);
+        System.out.printf("BMI 30-45  : Range of charges = %.2f%n", rangeMid);
+        System.out.printf("BMI > 45   : Range of charges = %.2f%n", rangeHigh);
+
+        if (rangeMid > rangeLow && rangeMid > rangeHigh)
+            System.out.println("\n YES, BMI 30–45 has the greatest range of charges.");
+        else
+            System.out.println("\n NO, BMI 30–45 does NOT have the greatest range of charges.");
+
+
+        System.out.println("\nSmoker vs Non-Smoker Charges Comparison:");
+
+        double minSmoker = Double.POSITIVE_INFINITY, maxSmoker = Double.NEGATIVE_INFINITY, sumSmoker = 0;
+        double minNon = Double.POSITIVE_INFINITY, maxNon = Double.NEGATIVE_INFINITY, sumNon = 0;
+        int countSmoker = 0, countNon = 0;
+
+        for (InsuranceRecord r : records) {
+            if (r.smoker.equals("yes")) {
+                minSmoker = Math.min(minSmoker, r.charges);
+                maxSmoker = Math.max(maxSmoker, r.charges);
+                sumSmoker += r.charges;
+                countSmoker++;
+            } else {
+                minNon = Math.min(minNon, r.charges);
+                maxNon = Math.max(maxNon, r.charges);
+                sumNon += r.charges;
+                countNon++;
+            }
+        }
+
+        double meanSmoker = (countSmoker == 0) ? 0 : sumSmoker / countSmoker;
+        double meanNon = (countNon == 0) ? 0 : sumNon / countNon;
+        double rangeSmoker = (minSmoker == Double.POSITIVE_INFINITY) ? 0 : (maxSmoker - minSmoker);
+        double rangeNon = (minNon == Double.POSITIVE_INFINITY) ? 0 : (maxNon - minNon);
+        
+        System.out.printf("Smokers     -> Count: %d | Avg charges: %.2f | Range: %.2f%n",
+                countSmoker, meanSmoker, rangeSmoker);
+        System.out.printf("Non-Smokers -> Count: %d | Avg charges: %.2f | Range: %.2f%n",
+                countNon, meanNon, rangeNon);
+
+        boolean higherAvg = meanSmoker > meanNon;
+        boolean widerRange = rangeSmoker > rangeNon;
+
+        if (higherAvg && widerRange)
+            System.out.println("\n Hypothesis confirmed: Smokers have higher and wider charge ranges.");
+        else
+            System.out.println("\n Hypothesis not fully confirmed.");
+
+        System.out.println("\nSmoker vs Non-Smoker BMI Comparison:");
+
+        double sumBmiSmoker = 0, sumBmiNon = 0;
+        int countBmiSmoker = 0, countBmiNon = 0;
+
+        for (InsuranceRecord r : records) {
+            if (r.smoker.equals("yes")) {
+                sumBmiSmoker += r.bmi;
+                countBmiSmoker++;
+            } else {
+                sumBmiNon += r.bmi;
+                countBmiNon++;
+            }
+        }
+
+        double avgBmiSmoker = (countBmiSmoker == 0) ? 0 : sumBmiSmoker / countBmiSmoker;
+        double avgBmiNon = (countBmiNon == 0) ? 0 : sumBmiNon / countBmiNon;
+
+        System.out.printf("Smokers     -> Count: %d | Avg BMI: %.2f%n", countBmiSmoker, avgBmiSmoker);
+        System.out.printf("Non-Smokers -> Count: %d | Avg BMI: %.2f%n", countBmiNon, avgBmiNon);
+
+        if (avgBmiSmoker < avgBmiNon)
+            System.out.println("\n Yes, smokers have a lower average BMI.");
+        else
+            System.out.println("\n No, smokers do not have a lower average BMI.");
+
+        System.out.println("\nRegions Sorted by Average Charges (Descending):");
+
+        Map<String, Double[]> regionStats = new HashMap<>(); // [sum, count]
+        for (InsuranceRecord r : records) {
+            Double[] stat = regionStats.getOrDefault(r.region, new Double[]{0.0, 0.0});
+            stat[0] += r.charges; // sum
+            stat[1] += 1.0;       // count
+            regionStats.put(r.region, stat);
+        }
+
+        List<Map.Entry<String, Double>> avgList = new ArrayList<>();
+        for (Map.Entry<String, Double[]> entry : regionStats.entrySet()) {
+            double avg = entry.getValue()[0] / entry.getValue()[1];
+            avgList.add(Map.entry(entry.getKey(), avg));
+        }
+
+        avgList.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));
+
+        for (Map.Entry<String, Double> e : avgList)
+            System.out.printf("%-12s -> Avg charges: %.2f%n", e.getKey(), e.getValue());
+
+
+        System.out.println("\nSouthern vs Northern Smoking Analysis:");
+
+        int southSmokers = 0, southTotal = 0;
+        int northSmokers = 0, northTotal = 0;
+        double southSmokerAgeSum = 0, northSmokerAgeSum = 0;
+
+        for (InsuranceRecord r : records) {
+            String regionLower = r.region.toLowerCase();
+            if (regionLower.contains("south")) {
+                southTotal++;
+                if (r.smoker.equalsIgnoreCase("yes")) {
+                    southSmokers++;
+                    southSmokerAgeSum += r.age;
+                }
+            } else if (regionLower.contains("north")) {
+                northTotal++;
+                if (r.smoker.equalsIgnoreCase("yes")) {
+                    northSmokers++;
+                    northSmokerAgeSum += r.age;
+                }
+            }
+        }
+
+        double southSmokingRate = (southTotal == 0) ? 0 : (100.0 * southSmokers / southTotal);
+        double northSmokingRate = (northTotal == 0) ? 0 : (100.0 * northSmokers / northTotal);
+
+        double southAvgSmokerAge = (southSmokers == 0) ? 0 : southSmokerAgeSum / southSmokers;
+        double northAvgSmokerAge = (northSmokers == 0) ? 0 : northSmokerAgeSum / northSmokers;
+
+        System.out.printf("Southerners -> Total: %d | Smokers: %d (%.2f%%) | Avg smoker age: %.2f%n",
+                southTotal, southSmokers, southSmokingRate, southAvgSmokerAge);
+        System.out.printf("Northerners -> Total: %d | Smokers: %d (%.2f%%) | Avg smoker age: %.2f%n",
+                northTotal, northSmokers, northSmokingRate, northAvgSmokerAge);
+
+        if (southSmokingRate > northSmokingRate) {
+            System.out.printf("%nYES, Southerners smoke more than Northerners.%n");
+            System.out.printf("Average age of Southern smokers: %.2f years%n", southAvgSmokerAge);
+        } else {
+            System.out.printf("%nNO, Southerners do not smoke more than Northerners.%n");
+            System.out.printf("Average age of Northern smokers: %.2f years%n", northAvgSmokerAge);
+        }
+
+    
+        System.out.println("\nSouthern vs Northern Children Analysis:");
+
+        int southChildTotal = 0, northChildTotal = 0;
+        int southChildrenSum = 0, northChildrenSum = 0;
+        double southAgeSumForChildren = 0, northAgeSumForChildren = 0;
+
+        for (InsuranceRecord r : records) {
+            String regionLower = r.region.toLowerCase();
+            if (regionLower.contains("south")) {
+                southChildTotal++;
+                southChildrenSum += r.children;
+                southAgeSumForChildren += r.age;
+            } else if (regionLower.contains("north")) {
+                northChildTotal++;
+                northChildrenSum += r.children;
+                northAgeSumForChildren += r.age;
+            }
+        }
+
+        double southAvgChildren = (southChildTotal == 0) ? 0 : (1.0 * southChildrenSum / southChildTotal);
+        double northAvgChildren = (northChildTotal == 0) ? 0 : (1.0 * northChildrenSum / northChildTotal);
+
+        double southAvgAgeForChildren = (southChildTotal == 0) ? 0 : (southAgeSumForChildren / southChildTotal);
+        double northAvgAgeForChildren = (northChildTotal == 0) ? 0 : (northAgeSumForChildren / northChildTotal);
+
+        System.out.printf("Southerners -> Total: %d | Avg children: %.2f | Avg age: %.2f%n",
+                southChildTotal, southAvgChildren, southAvgAgeForChildren);
+        System.out.printf("Northerners -> Total: %d | Avg children: %.2f | Avg age: %.2f%n",
+                northChildTotal, northAvgChildren, northAvgAgeForChildren);
+
+        if (southAvgChildren > northAvgChildren) {
+            System.out.printf("%nYES, Southerners have more children on average than Northerners.%n");
+            System.out.printf("Average age of Southerners when this is true: %.2f years%n", southAvgAgeForChildren);
+        } else {
+            System.out.printf("%nNO, Southerners do not have more children on average.%n");
+            System.out.printf("Average age of Northerners when this is true: %.2f years%n", northAvgAgeForChildren);
+        }
+
+
+        System.out.println("\nSimple Linear Regression: Charges vs. Number of Children");
+
+        int n = records.size();
+        if (n == 0) {
+            System.out.println("No data loaded; cannot perform regression.");
+            return;
+        }
+
+        double sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0, sumY2 = 0;
+        for (InsuranceRecord r : records) {
+            double x = r.children;
+            double y = r.charges;
+            sumX += x;
+            sumY += y;
+            sumXY += x * y;
+            sumX2 += x * x;
+            sumY2 += y * y;
+        }
+
+         double meanX = sumX / n;
+        double meanY = sumY / n;
+
+       
+        double numerator = sumXY - (sumX * sumY / n);
+        double denominator = sumX2 - (sumX * sumX / n);
+        double b1 = (denominator == 0) ? 0 : numerator / denominator;
+        double b0 = meanY - b1 * meanX;
+
+       
+        double rNumerator = n * sumXY - (sumX * sumY);
+        double rDenominator = Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
+        double r = (rDenominator == 0) ? 0 : rNumerator / rDenominator;
+
+        
+        System.out.printf("Regression line: charges = %.4f + %.4f * children%n", b0, b1);
+        System.out.printf("Pearson correlation coefficient (r): %.4f%n", r);
+
+       
+        System.out.println("\nPredicted charges for 22 new x values (children count):");
+        Random rand = new Random();
+        for (int i = 1; i <= 22; i++) {
+            int xNew = rand.nextInt(6); // random number of children between 0 and 5
+            double yPred = b0 + b1 * xNew;
+            System.out.printf("Case %2d: children = %d -> predicted charges = %.2f%n", i, xNew, yPred);
+        }
+
     }
 }
